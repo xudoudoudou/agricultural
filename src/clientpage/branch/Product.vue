@@ -19,9 +19,15 @@
 
 </template>
 <script>
+import {ajax,storage} from 'utils';
+import common from 'common';
 export default {
   data(){
     return{
+      data:{
+        // title:'',
+        // content:''
+      },
       showdata1:[
         {
           id:0,
@@ -85,12 +91,15 @@ export default {
   created(){
     this.getproductlist()
   },
+  mounted() {
+      this.ajaxData();
+  },
   methods:{
     getproductlist(){
       // let savedata=this.showdata1
-      this.$store.dispatch('saveproductlist',JSON.stringify(this.showdata1))
-      localStorage.setItem('productlist',JSON.stringify(this.showdata1))
-      console.log('this.showdata1',this.showdata1)
+      // this.$store.dispatch('saveproductlist',JSON.stringify(this.showdata1))
+      
+     
     },
     showproducts(item){
       item = JSON.stringify(item)
@@ -101,10 +110,27 @@ export default {
           }
           
         })
+    },
+    //listClient
+     ajaxData(){
+      ajax.call(this, '/listClient', this.data, (obj, err) => {
+        let temp=[]
+          if (!err) { 
+               this.showdata1= obj.data.filter((i)=>{
+                  if(i.sort_name=='产品列表'){
+                    temp.push(i)
+                  }
+                  return i.sort_name=="产品列表"
+                })
+           
+          }
+          //存储所有的产品列表
+          // localStorage.setItem('productlist',JSON.stringify(temp))
+          // console.log('--------',temp)
+      });
     }
-
   },
-}
+} 
 </script>
 <style lang="scss" scoped>
   

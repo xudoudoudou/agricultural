@@ -35,6 +35,9 @@ const urls = {
     'passedArticle': {},
     'deleteArticle': {},
     'getArticleById': {userType: 4},//获取文章详情
+    'testaa': {},
+    'clientad': {},//新增产品
+    'listClient':{},//展示产品列表
 };
 
 Object.getOwnPropertyNames(urls).forEach(key=>{

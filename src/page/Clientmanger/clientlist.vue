@@ -1,30 +1,24 @@
 <template>
     <div>
+          <el-form ref="form" :model="productdata" label-width="80px">
+            <el-form-item label="产品标题" prop="content">
+                <el-input  v-model="productdata.title"></el-input>
+            </el-form-item>
+             <el-form-item label="产品内容" prop="content">
+                <el-input type="textarea" v-model="productdata.content"></el-input>
+            </el-form-item>
+            <el-form-item label="产品图片" prop="title">
+                <el-input v-model="productdata.img"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button @click="addlist">提交</el-button>
+            </el-form-item>         
+          </el-form>
         <el-row class="grid-table">
-            <el-form :inline="true" :model='search_data'>
-                <el-form-item label="标题">
-                    <el-input size="small" v-model="search_data.title"></el-input>
-                </el-form-item>
-                <el-form-item label="分类">
-                    <el-cascader size="small" change-on-select :options="sort_data" :clearable="true" v-model="sort_id"  :props="defaultProps"></el-cascader>
-                </el-form-item>
-                <el-form-item label="权限">
-                    <el-select size="small" v-model="search_data.read_type">
-                        <el-option label="全部" value=""></el-option>
-                        <el-option v-for="(value,key) in read_type" :key="key"
-                                   :label="value" :value="key" v-if="key!='0'">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item>
-                    <el-button size="small" icon="search" @click='onSearch'>查询</el-button>
-                    <el-button size="small" icon="plus" type="primary" @click="add" :disabled="grade.updateArticle">添加文章</el-button>
-                </el-form-item>
-            </el-form>
             <el-button type="success" :disabled="grade.passedArticle" @click='passedArticle(null,1)'>批量通过</el-button>
             <el-button type="warning" :disabled="grade.passedArticle" @click='passedArticle(null,0)'>批量审核</el-button>
             <el-button type="danger" :disabled="grade.deleteArticle" @click='deleteArticle()'>批量删除</el-button>
-            <el-table stripe border style="width:100%;margin-top:10px" :data="table_data.data" @selection-change="handleSelectionChange">
+            <el-table stripe border style="width:100%;margin-top:10px" :data="table_data.data0" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" :selectable="selectable" width="55"></el-table-column>
                 <el-table-column
                     show-overflow-tooltip
@@ -44,35 +38,11 @@
                 :total="table_data.total">
             </el-pagination>
         </el-row>
-        <Sidebar ref="view">
-            <div slot='title'>{{article.title}}</div>
-            <div slot="content" class="sidebar_content" v-loading="loading">
-                <el-row :gutter="20" class="">
-                    <el-col :span="6"><strong>文章分类：</strong>{{article.sort_name}}</el-col>
-                    <el-col :span="6"><strong>作者：</strong>{{article.user_name}}</el-col>
-                    <el-col :span="6"><strong>阅读权限：</strong>{{read_type[article.read_type]}}</el-col>
-                    <el-col :span="6"><strong>时间：</strong>{{article.create_time}}</el-col>
-                </el-row>
-                <el-row :gutter="20" class="">
-                    <el-col :span="24"><strong>文章概要：</strong>{{article.description}}</el-col>
-                </el-row>
-                <div class="article_content" v-html="article.content">文章内容</div>
-            </div>
-            <div slot="foot" class="sidebar_foot">
-                <p>上一条：<span v-if="!article.next.title">已经没有上一条数据</span>
-                    <a @click="getActiveContent(article.next.id)" href="javascript:void 0">{{article.next.title}}</a>
-                </p>
-                <p>下一条：<span v-if="!article.prev.title">已经没有下一条数据</span>
-                    <a @click="getActiveContent(article.prev.id)" href="javascript:void 0">{{article.prev.title}}</a>
-                </p>
-            </div>
-        </Sidebar>
     </div>
 </template>
 <script type="text/javascript">
     import {ajax,storage} from 'utils';
     import common from 'common';
-    import Sidebar from 'components/Sidebar.vue';
     module.exports = {
         name: 'list',
         data() {
@@ -103,7 +73,8 @@
                 multipleSelection:[],
                 table_data: {
                     columns: [
-                        {"key": "title", "name": "文章标题", minWidth: 150},
+                        {"key": "title", "name": "产品标题", minWidth: 150},
+                        {"key": "content", "name": "产品内容", minWidth: 150},
                         {"key": "sort_name", "name": "分类名称", width: 120},
                         {"key": "user_name", "name": "作者", width: 120},
                         {"key": "passed", "name": "状态", width: 80},
@@ -112,10 +83,10 @@
                         {"key": "operations", "name": "操作", width: 135}
                     ],
                     total: 0,
-                    data: []
+                    data0: []
                 }, 
                 loading:false,
-                article:{
+                productdata:{
                     title:'',
                     sort_name:'',
                     user_name:'',
@@ -129,6 +100,19 @@
             }
         },
         methods: {
+          //新增产品
+           addlist(){
+            ajax.call(this, '/clientad', this.productdata, (data, err) => {
+                if (!err) {
+                    this.$message({
+                        message: '保存成功',
+                        type: 'success'
+                    });
+                }
+              })
+              this.productdata={}
+              this.ajaxData()
+          },
             //删除文章
             deleteArticle(arr){
                 if(!arr){
@@ -272,9 +256,9 @@
             ajaxData(){
                 let p = this.sort_id;
                 this.search_data.sort_id = p.length ? p.slice(-1)[0] : '';
-                ajax.call(this, '/listArticle', this.search_data, (obj, err) => {
+                ajax.call(this, '/listClient', this.productdata, (obj, err) => {
                     if (!err) {
-                        this.table_data.data = obj.data;
+                        this.table_data.data0 = obj.data;
                         this.table_data.total = obj.total;
                         this.search_data.page = obj.page;
                     }
@@ -313,28 +297,26 @@
             });
         },
         mixins:[common.mixin],
-        components:{
-            Sidebar
-        }
+       
     }
 </script>
 <style lang="less">
     .grid-table{
-        .el-form-item{
-            display: inline-block;
-            max-height:240px;
-            width:~'calc(24% - 10px)';
-            &:first-child{
-                .el-input{
-                    margin-right:25px;
-                }
-            }
-            &:last-child{
-                overflow: hidden;
-                white-space: nowrap;
-                vertical-align: bottom;
-            }
-        }
+        // .el-form-item{
+        //     display: inline-block;
+        //     max-height:240px;
+        //     width:~'calc(24% - 10px)';
+        //     &:first-child{
+        //         .el-input{
+        //             margin-right:25px;
+        //         }
+        //     }
+        //     &:last-child{
+        //         overflow: hidden;
+        //         white-space: nowrap;
+        //         vertical-align: bottom;
+        //     }
+        // }
         .el-pagination{
             margin-top:5px;
             text-align: right;

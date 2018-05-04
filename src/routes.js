@@ -8,6 +8,8 @@ import ArticleAdd from 'page/Article/add.vue'
 import UpFileList from 'page/UpFile/list.vue'
 import userList from 'page/User/list.vue'
 import userAdd from 'page/User/add.vue'
+import test from 'page/test.vue'
+import clientlist from 'page/Clientmanger/clientlist.vue'
 //todo 记录
 /*
 *
@@ -45,7 +47,14 @@ export default {
                     icon:'fa fa-th-large'
                 },
                 component: ArticleSort
-            },{
+            },
+                {
+                    path: 'test',
+                    name: 'test',
+                    meta: { title: 'test' },
+                    component: test
+                },
+            {
                 path: 'list',
                 meta:{
                     verify:true,
@@ -125,6 +134,27 @@ export default {
                     icon:'fa fa-files-o'
                 },
                 component: UpFileList
+            }]
+        },
+        //--------------
+        {
+            path: '/Agriculture',
+            meta: {
+                verify: true,
+                title: '产品管理',
+                icon: 'fa fa-upload'
+            },
+            component: Home,
+            redirect: '/Agriculture/clientlist',
+            children: [{
+                path: 'clientlist',
+                meta: {
+                    verify: true,
+                    grade: common.page_grade.listUpFile,
+                    title: '添加产品',
+                    icon: 'fa fa-files-o'
+                },
+                component: clientlist
             }]
         }
     ]

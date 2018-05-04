@@ -9,7 +9,7 @@
         <p style="text-align:center; border-bottom:1px solid gainsboro;font-size:19px;color:grey;padding:10px 0">我们的服务</p>
         <div class="services">
           <ul>
-            <li v-for="(item,index) in showdata" :key="index">
+            <li v-for="(item,index) in showdata1" :key="index">
               <img :src='item.url' width="250px" height="150px">
               <div>
                 <p>{{item.title}}</p>
@@ -34,9 +34,15 @@
   </div>
 </template>
 <script>
+import {ajax,storage} from 'utils';
+import common from 'common';
 export default {
   data(){
     return{
+      data:{
+        // title:'',
+        // content:''
+      },
        imglist:[
          {imgurl:require('../../assets/img/tab1.jpg')},
          {imgurl:require('../../assets/img/tab2.jpg')},
@@ -44,7 +50,7 @@ export default {
          {imgurl:require('../../assets/img/tab4.jpg')},
          {imgurl:require('../../assets/img/tab5.jpg')},
       ],
-      showdata:[
+      showdata1:[
         {
           id:0,
           url:require('../../assets/img/tab1.jpg'),
@@ -66,25 +72,65 @@ export default {
       ],
     }
   },
+  mounted() {
+      this.ajaxData();
+      this.ajaxData1();
+  },
   methods:{
     showproducts(item){
-        item = JSON.stringify(item)
-        this.$router.push({
-          path:'/product/list',
-          query:{
-            item:item
-          }         
-        })
-      }
+      item = JSON.stringify(item)
+      this.$router.push({
+        path:'/product/list',
+        query:{
+          item:item
+        }         
+      })
+    },
+    ajaxData(){
+      ajax.call(this, '/listClient', this.data, (obj, err) => {
+        let temp=[]
+          if (!err) { 
+          this.showdata1= obj.data
+              this.showdata1= obj.data.filter((i)=>{
+                  if(i.sort_name=='服务列表'){
+                    temp.push(i)
+                  }
+                  return i.sort_name=="服务列表"
+                })
+          }
+      });
+    },
+    ajaxData1(){
+      ajax.call(this, '/listClient', this.data, (obj, err) => {
+        console.log('--------',obj)
+        let temp=[]
+          if (!err) { 
+               obj.data.filter((i)=>{
+                  if(i.sort_name=='产品列表'){
+                    temp.push(i)
+                  }
+                  return i.sort_name=="产品列表"
+                })
+           
+          }
+          //存储所有的产品列表
+          localStorage.setItem('productlist',JSON.stringify(temp))
+          // console.log('--------',temp)
+      });
+    }
+      
+  },
+  watch:{
+    
   },
   computed: {
     filterData() {
-    let showdata1=JSON.parse(localStorage.getItem('productlist'))
-    let list=[]
-    list=showdata1.filter((i,index)=>{//filter方法是过滤，能满足的条件才能展示出
-      return index <4
-    })
-    return list
+      let showdata1=JSON.parse(localStorage.getItem('productlist'))
+      let list=[]
+      list=showdata1.filter((i,index)=>{//filter方法是过滤，能满足的条件才能展示出
+        return index <4
+      })
+      return list
   },
       
   },

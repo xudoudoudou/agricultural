@@ -445,14 +445,48 @@ async function changePassword(ctx) {
         data: {}
     }
 }
-
+async function testaa(ctx) {
+    const data = ctx.request.body;
+    let err;
+    const obj = {
+        title: '文章标题',
+        description: '文章概要',
+        content: '文章内容'
+    };
+    for (let key in obj) {
+        if (!data[key]) {
+            err = obj[key] + '不能为空！';
+            break;
+        }
+    }
+    const array = [
+        data.title.slice(0, 50),
+        data.description.slice(0, 50),
+        data.content.slice(0, 50),
+    ];
+    if (!err) {
+        const user = ctx.state.userInfo;//获取用户信息
+        const addadd = await mysql.createConnection(config.mysqlDB);
+            //添加文章
+            // array.push(new Date().toLocaleString());//添加日期
+            // array.push(user.id);//用户信息
+        const [result] = await addadd.execute('INSERT INTO `product` (title,description,content) VALUES (?,?,?)', array);
+            err = result.affectedRows === 1 ? '' : '文章添加失败';
+        await addadd.end();
+    }
+    ctx.body = {
+        success: !err,
+        message: err,
+        data: {}
+    }
+}
 //新添或编辑文章
 async function updateArticle(ctx) {
     const data = ctx.request.body;
     let err;
     const obj = {
         title:'文章标题',
-        description:'文章概要',
+        // description:'文章概要',
         read_type:'阅读权限',
         content:'文章内容'
     };
@@ -517,6 +551,10 @@ async function listArticle(ctx) {
         querying += " and title like ?";
         arr.push('%' + data.title + '%');
     }
+    if (data.content) {
+        querying += " and content like ?";
+        arr.push('%' + data.content + '%');
+    }
     if(/^\d+$/.test(data.sort_id)){
         querying += ' and sort_id=?';
         arr.push(data.sort_id >> 0);
@@ -540,16 +578,16 @@ async function listArticle(ctx) {
     }
     querying += " order by a.id desc LIMIT ?, ?";
     arr.push((page - 1) * pageSize,pageSize);
-    const [list] = await connection.execute("SELECT a.id,a.title,a.sort_id,a.user_id,a.passed,a.read_type,a.create_time,u.`user_name`,s.`sort_name` FROM article as a LEFT JOIN user as u on a.user_id = u.id LEFT JOIN sort as s on a.sort_id = s.id"+querying.replace('and','where'), arr);
+    const [list] = await connection.execute("SELECT a.id,a.content,a.title,a.sort_id,a.user_id,a.passed,a.read_type,a.create_time,u.`user_name`,s.`sort_name` FROM article as a LEFT JOIN user as u on a.user_id = u.id LEFT JOIN sort as s on a.sort_id = s.id"+querying.replace('and','where'), arr);
     await connection.end();
     ctx.body = {
         success: true,
         message: '',
         data: {
-            page,total,data:list
+             page,total,data:list
         }
     }
-}
+ }
 
 //获取文章详情（管理员获取所有；会员获取自己的或者是审核通过的）
 async function getArticleById(ctx) {
@@ -817,6 +855,82 @@ async function saveXML(ctx){
 		}
     }
 }
+// -------------client
+//新增产品
+async function clientad(ctx) { 
+    const data = ctx.request.body;
+    let err;
+    const obj = {
+        title: '产品标题',
+        content: '产品内容'
+    };
+    for (let key in obj) {
+        if (!data[key]) {
+            err = obj[key] + '不能为空！';
+            break;
+        }
+    }
+    const array = [
+        data.title.slice(0, 100),
+        data.content.slice(0, 255),
+    ];
+    if (!err) {
+        const user = ctx.state.userInfo;//获取用户信息
+        const addadd = await mysql.createConnection(config.mysqlDB);
+        //添加文章
+        array.push(new Date().toLocaleString());//添加日期
+        array.push(user.id);//用户信息
+        const [result] = await addadd.execute('INSERT INTO `article1` (title,content,create_time,user_id) VALUES (?,?,?,?)', array);
+        err = result.affectedRows === 1 ? '' : '文章添加失败';
+        await addadd.end();
+    }
+    ctx.body = {
+        success: !err,
+        message: err,
+        data: {}
+    }
+ }
+ //展示产品列表
+async function listClient(ctx) {
+    const data = ctx.request.body;
+    let pageSize = Math.abs(data.pageSize >> 0) || 10;//分页率
+    let page = Math.abs(data.page >> 0) || 1;//当前页码
+    const arr = [];
+    let querying = '';
+    if (data.title) {
+        querying += " and title like ?";
+        arr.push('%' + data.title + '%');
+    }
+    if (data.content) {
+        querying += " and content like ?";
+        arr.push('%' + data.content + '%');
+    }
+    // if (data.description) {
+    //     querying += " and description like ?";
+    //     arr.push('%' + data.description + '%');
+    // }
+    
+    //会员只能查看自己的文章(暂关闭)
+    const user = ctx.state.userInfo;
+    const connection1 = await mysql.createConnection(config.mysqlDB);
+    const [rows] = await connection1.execute("SELECT SQL_NO_CACHE COUNT(*) as total FROM `article`" + querying.replace('and', 'where'), arr);
+    const total = rows[0].total;//总数量
+    const pages = Math.ceil(total / pageSize);
+    if (page > pages) {
+        page = Math.max(1, pages);//以防没数据
+    }
+    querying += " order by a.id desc LIMIT ?, ?";
+    arr.push((page - 1) * pageSize, pageSize);
+    const [list] = await connection1.execute("SELECT a.id,a.content,a.title,a.user_id,a.create_time,u.`user_name`,s.`sort_name` FROM article as a LEFT JOIN user as u on a.user_id = u.id LEFT JOIN sort as s on a.sort_id = s.id" + querying.replace('and', 'where'), arr);
+    await connection1.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            page, total, data: list
+        }
+    }
+}
 
 export default {
     saveXML,
@@ -843,5 +957,8 @@ export default {
     deleteUser,
     getUserById,
     upUserPic,
-    updateUser
+    updateUser,
+    testaa,
+    clientad,
+    listClient,
 }

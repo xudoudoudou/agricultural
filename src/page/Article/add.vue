@@ -7,9 +7,9 @@
             <el-form-item label="文章分类" prop="sort_id">
                 <el-cascader :options="sort_data" v-model="sort_id" change-on-select :props="defaultProps"></el-cascader>
             </el-form-item>
-            <el-form-item label="文章概要" prop="description">
+            <!-- <el-form-item label="文章概要" prop="description">
                 <el-input type="textarea" v-model="data.description"></el-input>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item label="作者">
                 <el-input readonly="readonly" :value="data.user_name" style="width:217px;opacity: 0.5"></el-input>
             </el-form-item>
@@ -20,7 +20,8 @@
                 <el-input v-model="data.pic"></el-input> <up-file ref="upload" :upload="{}" @successUpload="successUpload"></up-file> <el-button @click="upImg" :disabled="grade.upFile">上传图片</el-button>
             </el-form-item>
             <el-form-item label="文章内容" prop="content">
-                <VueEditor :content="data.content" :height="250" :auto-height="false" @change="changeContent"></VueEditor>
+                <!-- <VueEditor :content="data.content" :height="250" :auto-height="false" @change="changeContent"></VueEditor> -->
+                <el-input type="textarea" v-model="data.content" :height="250"></el-input>
             </el-form-item>
             <el-form-item style="text-align: right">
                 <el-button @click="backList">返回列表</el-button>
@@ -64,11 +65,11 @@
                     },{
                         pattern:/^.{1,100}$/, message: '请输入1-100个字符的文章标题', trigger: 'blur'
                     }],
-                    description:[{
-                        required: true, message: '文章概要不能为空', trigger: 'change'
-                    },{
-                        pattern:/^.{5,255}$/, message: '请输入5-255个字符的文章概要', trigger: 'blur'
-                    }],
+                    // description:[{
+                    //     required: true, message: '文章概要不能为空', trigger: 'change'
+                    // },{
+                    //     pattern:/^.{5,255}$/, message: '请输入5-255个字符的文章概要', trigger: 'blur'
+                    // }],
                     read_type: [{
                         required: true,type:'number',min:1,max:4, message: '请选择阅读权限', trigger: 'change'
                     }],
