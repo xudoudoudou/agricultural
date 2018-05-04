@@ -4,11 +4,11 @@
         <img :src="imgurl" width="200px" height="80px">
         <div>
           <el-menu :default-active="activeIndex" class="topmenu" mode="horizontal" @select="handleSelect">
-              <el-menu-item index="1" class="menu_item" ><router-link to="/cn">网站首页</router-link></el-menu-item>
-              <el-menu-item index="2" class="menu_item"><router-link to="/about">关于我们</router-link></el-menu-item>
-              <el-menu-item index="3" class="menu_item"><router-link to="/tourism">乡村旅游</router-link></el-menu-item>
-              <el-menu-item index="4" class="menu_item"><router-link to="/product">产品展示</router-link></el-menu-item>
-              <el-menu-item index="5" class="menu_item"><router-link to="/call">联系我们</router-link></el-menu-item>
+              <el-menu-item index="1" class="menu_item" ><router-link to="/cn" tag="li" >网站首页</router-link></el-menu-item>
+              <el-menu-item index="2" class="menu_item"><router-link to="/about" tag="li" >关于我们</router-link></el-menu-item>
+              <el-menu-item index="3" class="menu_item"><router-link to="/tourism" tag="li" >乡村旅游</router-link></el-menu-item>
+              <el-menu-item index="4" class="menu_item"><router-link to="/product" tag="li" >产品展示</router-link></el-menu-item>
+              <el-menu-item index="5" class="menu_item"><router-link to="/call" tag="li" >联系我们</router-link></el-menu-item>
           </el-menu> 
         </div>
       </div>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       breadlist:'',
-      ishow:true,
+      ishow:false,
       activeIndex: "1",
       imgurl: require("../assets/img/logo.jpg")
     };
@@ -44,13 +44,15 @@ export default {
       }
     },
    getlist(){
-     this.breadlist=this.$route.matched
-      this.$route.matched.forEach((i, index) => {
-          i.name === '首页' ? i.path = '/' : this.$route.path
-        })
-      if(this.$route.path=='/cn'){
-        this.ishow=false
+     if(this.$route.path=='/cn'){
+        this.ishow=false      
       }
+      this.breadlist=this.$route.matched
+      this.$route.matched.forEach((i, index) => {
+        i.name === '首页' ? i.path = '/' : this.$route.path
+      })
+     
+      
    }
     
    
@@ -77,7 +79,6 @@ export default {
   .bread{
     background: rgb(245, 246, 246);
     .client_content{
-      padding-top:5px;
       .breadcrumb{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
@@ -111,14 +112,18 @@ export default {
       margin-right: 10px;
       background: #fff;
       .menu_item {
-        padding-bottom: 10px;
-        margin: 0px;
         height: 40px;
         text-align: center;
         line-height: 40px;
         font-size: 16px;
+        width: 100px;
+        padding: 0px;
         font-family: 微软雅黑;
         border: 1px solid #ffffff;
+
+          li{
+            height: 40px;
+          }
         &:hover {
           background: #ffffff;
           color: rgb(117, 247, 117);

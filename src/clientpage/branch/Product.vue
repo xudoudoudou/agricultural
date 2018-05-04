@@ -14,6 +14,7 @@
           </ul>
         </div>
     </div>
+   
   </div>
 
 </template>
@@ -55,7 +56,7 @@ export default {
           id:5,
           url:require('../../assets/img/tab1.jpg'),
           title:'服务宗旨',
-          content:'以地球极低度开发方式。生产以原生态老挝香米、黑糯米等优质农产品，以公司+基地+农户合作模式，已形成较大规模原生态农产品种植基地。'
+          content:'以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。生产以原生态老挝香米、黑糯米等优质农产品，以公司+基地+农户合作模式，已形成较大规模原生态农产品种植基地。'
         },
         {
           id:6,
@@ -106,6 +107,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  
+            
 .client_content{
   background: #ffffff;
 }
@@ -145,7 +148,14 @@ export default {
         p:nth-child(2){
           font-size: 13px;
            line-height: 25px;
-           
+           height: 100px;
+           display: -webkit-box !important;
+           overflow:hidden;
+          white-space:normal;
+           text-overflow:ellipsis;
+          word-break: break-all;  
+          -webkit-box-orient: vertical;  
+          -webkit-line-clamp: 3; 
            
         }
         &:nth-child(4n){

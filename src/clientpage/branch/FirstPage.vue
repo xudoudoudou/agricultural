@@ -49,7 +49,7 @@ export default {
           id:0,
           url:require('../../assets/img/tab1.jpg'),
           title:'服务宗旨',
-          content:'以地球极低度开发方式。生产以原生态老挝香米、黑糯米等优质农产品，以公司+基地+农户合作模式，已形成较大规模原生态农产品种植基地。'
+          content:'以地球反反复复反反复复反反复复反反复复分极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。以地球极低度开发方式。黑糯米等优质农产品，以公司+基地+农户合作模式，已形成较大规模原生态农产品种植基地。'
         },
         {
           id:1,
@@ -104,7 +104,7 @@ export default {
       flex-wrap:wrap;
       align-items: flex-start;
       li{
-        border: 1px solid #575353;
+        // border: 1px solid #575353;
         margin-right: 7px;
         width: 385px;
         height: 300px;

@@ -19,18 +19,16 @@ export default new Router({
         }, 
         {
             path: '/',
-            redirect: '/clienthome'
+            redirect: '/cn'
         },
         {
             path: '/clienthome',
             component: ClientHome,
             name:'首页',
-            meta: { title: '首页' },
-            redirect: '/cn',
             children:[
                 {
                     path: '/cn',
-                    name: 'firstpage',
+                    name:'fff',
                     component: FirstPage  
                 },
                 {
