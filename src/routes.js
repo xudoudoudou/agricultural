@@ -3,13 +3,14 @@ import Login from 'page/Login.vue'
 import NoFind from 'page/NoFind.vue'
 import Home from 'page/Home.vue'
 import ArticleList from 'page/Article/list.vue'
-import ArticleSort from 'page/Article/sort.vue'
+// import ArticleSort from 'page/Article/sort.vue'
 import ArticleAdd from 'page/Article/add.vue'
 import UpFileList from 'page/UpFile/list.vue'
 import userList from 'page/User/list.vue'
 import userAdd from 'page/User/add.vue'
-import test from 'page/test.vue'
+// import test from 'page/test.vue'
 import clientlist from 'page/Clientmanger/clientlist.vue'
+import upimg from 'page/UpFile/upimg.vue'
 //todo 记录
 /*
 *
@@ -33,33 +34,34 @@ export default {
             path: '/article',
             meta:{
                 verify:true,
-                title:'文章管理',
+                title:'产品管理',
                 icon:'fa fa-file-text-o'
             },
             component: Home,
             redirect:'/article/list',
-            children: [{
-                path: 'sort',
-                meta:{
-                    verify:true,
-                    grade:common.page_grade.listSort,
-                    title: '分类管理',
-                    icon:'fa fa-th-large'
-                },
-                component: ArticleSort
-            },
-                {
-                    path: 'test',
-                    name: 'test',
-                    meta: { title: 'test' },
-                    component: test
-                },
+            children: [
+                // {
+                //     path: 'sort',
+                //     meta:{
+                //         verify:true,
+                //         grade:common.page_grade.listSort,
+                //         title: '分类管理',
+                //         icon:'fa fa-th-large'
+                //     },
+                //     component: ArticleSort
+                // },
+                // {
+                //     path: 'test',
+                //     name: 'test',
+                //     meta: { title: 'test' },
+                //     component: test
+                // },
             {
                 path: 'list',
                 meta:{
                     verify:true,
                     grade:common.page_grade.listArticle,
-                    title: '文章列表',
+                    title: '所有产品列表',
                     icon:'fa fa-newspaper-o'
                 },
                 component: ArticleList
@@ -67,7 +69,7 @@ export default {
                 path: 'add',
                 meta:{
                     verify:true,
-                    title: '添加文章',
+                    title: '添加产品',
                     icon:'fa fa-clone'
                 },
                 component: ArticleAdd
@@ -75,7 +77,7 @@ export default {
                 path: 'edit/:id',
                 meta:{
                     verify:true,
-                    title: '编辑文章',
+                    title: '编辑产品列表',
                     icon:'fa fa-clone'
                 },
                 component: ArticleAdd
@@ -134,14 +136,22 @@ export default {
                     icon:'fa fa-files-o'
                 },
                 component: UpFileList
-            }]
+            }, {
+                    path: 'upimg',
+                    meta: {
+                        verify: true,
+                        title: '上传图片',
+                        icon: 'fa fa-files-o'
+                    },
+                    component: upimg
+                }]
         },
         //--------------
         {
             path: '/Agriculture',
             meta: {
                 verify: true,
-                title: '产品管理',
+                title: '测试着玩',
                 icon: 'fa fa-upload'
             },
             component: Home,

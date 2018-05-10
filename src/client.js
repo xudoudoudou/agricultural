@@ -3,6 +3,7 @@ import Vue from 'vue';
 import App from './App';
 import ElementUI from 'element-ui';
 import '../static/style.css';
+import './assets/css/common.css'
 import 'element-ui/lib/theme-default/index.css';
 import Vuex from 'vuex';
 

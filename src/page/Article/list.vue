@@ -48,13 +48,13 @@
             <div slot='title'>{{article.title}}</div>
             <div slot="content" class="sidebar_content" v-loading="loading">
                 <el-row :gutter="20" class="">
-                    <el-col :span="6"><strong>文章分类：</strong>{{article.sort_name}}</el-col>
+                    <el-col :span="6"><strong>产品分类：</strong>{{article.sort_name}}</el-col>
                     <el-col :span="6"><strong>作者：</strong>{{article.user_name}}</el-col>
                     <el-col :span="6"><strong>阅读权限：</strong>{{read_type[article.read_type]}}</el-col>
                     <el-col :span="6"><strong>时间：</strong>{{article.create_time}}</el-col>
                 </el-row>
                 <el-row :gutter="20" class="">
-                    <el-col :span="24"><strong>文章概要：</strong>{{article.description}}</el-col>
+                    <el-col :span="24"><strong>产品概要：</strong>{{article.description}}</el-col>
                 </el-row>
                 <div class="article_content" v-html="article.content">文章内容</div>
             </div>
@@ -66,9 +66,9 @@
                     <a @click="getActiveContent(article.prev.id)" href="javascript:void 0">{{article.prev.title}}</a>
                 </p>
             </div>
-        </Sidebar>
+        </Sidebar> 
     </div>
-</template>
+</template> 
 <script type="text/javascript">
     import {ajax,storage} from 'utils';
     import common from 'common';
@@ -97,7 +97,8 @@
                     sort_id: '',
                     read_type: '',
                     page: 1,
-                    pageSize: 10
+                    pageSize: 10,
+                    total:0,
                 },
                 //表格数据
                 multipleSelection:[],
@@ -157,7 +158,7 @@
                     }
                 }
                 ajax.call(this, '/passedArticle', {ids:arr.map(o=>o.id).join(","),passed:pass}, (obj, err) => {
-                    if (!err) {
+                   if (!err) {
                         arr.forEach(row=>{
                             row.passed = obj.passed;
                         })
@@ -273,10 +274,12 @@
                 let p = this.sort_id;
                 this.search_data.sort_id = p.length ? p.slice(-1)[0] : '';
                 ajax.call(this, '/listArticle', this.search_data, (obj, err) => {
+                   
                     if (!err) {
                         this.table_data.data = obj.data;
                         this.table_data.total = obj.total;
                         this.search_data.page = obj.page;
+                        console.log('---',obj.page)
                     }
                 });
             },

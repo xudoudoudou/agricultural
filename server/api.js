@@ -460,7 +460,7 @@ async function testaa(ctx) {
         }
     }
     const array = [
-        data.title.slice(0, 50),
+        data.title.slice(0, 10),
         data.description.slice(0, 50),
         data.content.slice(0, 50),
     ];
@@ -485,10 +485,10 @@ async function updateArticle(ctx) {
     const data = ctx.request.body;
     let err;
     const obj = {
-        title:'文章标题',
-        // description:'文章概要',
+        title:'产品标题',
         read_type:'阅读权限',
-        content:'文章内容'
+        content:'文章内容',
+        maincontent: '产品内容',
     };
     for(let key in obj){
         if (!data[key]) {
@@ -497,11 +497,12 @@ async function updateArticle(ctx) {
         }
     }
     const array = [
-        data.title.slice(0,100),
+        data.title.slice(0,10),
         data.description.slice(0,255),
         data.read_type >> 0,
         data.sort_id >> 0,
         data.content,
+        data.maincontent,
         data.article_extend
     ];
     if(!err){
@@ -521,14 +522,14 @@ async function updateArticle(ctx) {
                 }
             }
             array.push(data.id);
-            const [result] = await connection.execute('UPDATE `article` SET `title`=?,`description`=?,`read_type`=?,`sort_id`=?,`content`=?,`article_extend`=? where `id`=?', array);
+            const [result] = await connection.execute('UPDATE `article` SET `title`=?,`description`=?,`read_type`=?,`sort_id`=?,`content`=?,`maincontent`=?,`article_extend`=? where `id`=?', array);
             err = result.affectedRows === 1 ? '' :'文章修改失败';
         }else{
             //添加文章
             array.push(new Date().toLocaleString());//添加日期
             array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
             array.push(user.id);//用户信息
-            const [result] = await connection.execute('INSERT INTO `article` (title,description,read_type,sort_id,content,article_extend,create_time,passed,user_id) VALUES (?,?,?,?,?,?,?,?,?)', array);
+            const [result] = await connection.execute('INSERT INTO `article` (title,description,read_type,sort_id,content,maincontent,article_extend,create_time,passed,user_id) VALUES (?,?,?,?,?,?,?,?,?,?)', array);
             err = result.affectedRows === 1 ? '' :'文章添加失败';
         }
         await connection.end();
@@ -891,38 +892,19 @@ async function clientad(ctx) {
     }
  }
  //展示产品列表
-async function listClient(ctx) {
+async function listProduct(ctx) {
     const data = ctx.request.body;
-    let pageSize = Math.abs(data.pageSize >> 0) || 10;//分页率
+    let pageSize = Math.abs(data.pageSize >> 0) || 9;//分页率
     let page = Math.abs(data.page >> 0) || 1;//当前页码
-    const arr = [];
-    let querying = '';
-    if (data.title) {
-        querying += " and title like ?";
-        arr.push('%' + data.title + '%');
-    }
-    if (data.content) {
-        querying += " and content like ?";
-        arr.push('%' + data.content + '%');
-    }
-    // if (data.description) {
-    //     querying += " and description like ?";
-    //     arr.push('%' + data.description + '%');
-    // }
-    
-    //会员只能查看自己的文章(暂关闭)
-    const user = ctx.state.userInfo;
-    const connection1 = await mysql.createConnection(config.mysqlDB);
-    const [rows] = await connection1.execute("SELECT SQL_NO_CACHE COUNT(*) as total FROM `article`" + querying.replace('and', 'where'), arr);
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [rows] = await connection.execute("SELECT SQL_NO_CACHE COUNT(*) as total FROM article as a where a.sort_id = 6 and a.passed=0", []);
     const total = rows[0].total;//总数量
     const pages = Math.ceil(total / pageSize);
     if (page > pages) {
         page = Math.max(1, pages);//以防没数据
     }
-    querying += " order by a.id desc LIMIT ?, ?";
-    arr.push((page - 1) * pageSize, pageSize);
-    const [list] = await connection1.execute("SELECT a.id,a.content,a.title,a.user_id,a.create_time,u.`user_name`,s.`sort_name` FROM article as a LEFT JOIN user as u on a.user_id = u.id LEFT JOIN sort as s on a.sort_id = s.id" + querying.replace('and', 'where'), arr);
-    await connection1.end();
+    const [list] = await connection.execute("SELECT a.* FROM article as a where a.sort_id = 6 and passed=0 order by a.id desc LIMIT ?, ?", [(page - 1) * pageSize, pageSize]);
+    await connection.end();
     ctx.body = {
         success: true,
         message: '',
@@ -931,7 +913,129 @@ async function listClient(ctx) {
         }
     }
 }
-
+//所有产品列表
+async function listClient(ctx) {
+    const data = ctx.request.body; 
+    const arr = [];
+    let querying = '';
+    if (data.title) {
+        querying += " and title like ?";
+        arr.push('%' + data.title + '%');
+    }
+    if (data.maincontent) {
+        querying += " and content like ?";
+        arr.push('%' + data.maincontent + '%');
+    }
+    if (data.content) {
+        querying += " and content like ?";
+        arr.push('%' + data.content + '%');
+    }  
+    const connection1 = await mysql.createConnection(config.mysqlDB);
+    querying += " order by a.id desc ";
+    const [list] = await connection1.execute("SELECT a.id,article_extend,a.content,a.maincontent,a.title,a.user_id,a.passed,a.create_time,u.`user_name`,s.`sort_name` FROM article as a LEFT JOIN user as u on a.user_id = u.id LEFT JOIN sort as s on a.sort_id = s.id" + querying.replace('and', 'where'), arr);
+    await connection1.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: { 
+            data: list
+        }
+    }
+}
+//获取产品详情（管理员获取所有；会员获取自己的或者是审核通过的）
+async function getproductById(ctx) {
+    const data = ctx.request.body;
+    let id = data.id >> 0;
+    let msg;
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [list] = await connection.execute("SELECT a.* FROM article as a LEFT JOIN sort as s on a.sort_id = 6 where a.id=?", [id]);
+    const obj = list[0];
+    //扩展上一条下一条数据
+    let [prev] = await connection.execute("SELECT `id`,`title` FROM article where id<? and sort_id = 6 order by id desc limit 1", [id]);
+    let [next] = await connection.execute("SELECT `id`,`title` FROM article where id>? and sort_id = 6 order by id asc limit 1", [id]);
+    obj.prev = prev.length ? prev[0] : {};
+    obj.next = next.length ? next[0] : {};
+    await connection.end();
+    ctx.body = {
+        success: !msg,
+        message: msg,
+        data: !msg ? obj : {}
+    }
+}
+//上传轮播图
+async function updateimg(ctx) {
+    const data = ctx.request.body;
+    let err;
+    const obj = {
+        name: '文章标题',
+        content: '文章内容',
+    };
+    for (let key in obj) {
+        if (!data[key]) {
+            err = obj[key] + '不能为空！';
+            break;
+        }
+    }
+    const array = [
+        data.name,
+        data.content,
+        data.article_extend
+    ];
+    if (!err) {
+        const user = ctx.state.userInfo;//获取用户信息
+        const connection = await mysql.createConnection(config.mysqlDB);
+        if (data.id > 0) {
+            array.push(data.id);
+            const [result] = await connection.execute('UPDATE `upimg` SET `name`=?,`content`=?,`article_extend`=? where `id`=?', array);
+            err = result.affectedRows === 1 ? '' : '图片修改失败';
+        } else {
+            //添加文章
+            array.push(new Date().toLocaleString());//添加日期
+            array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
+            array.push(user.id);//用户信息
+            const [result] = await connection.execute('INSERT INTO `upimg` (name,content,article_extend,create_time,passed,user_id) VALUES (?,?,?,?,?,?)', array);
+            err = result.affectedRows === 1 ? '' : '图片添加失败';
+        }
+        await connection.end();
+    }
+    ctx.body = {
+        success: !err,
+        message: err,
+        data: {}
+    }
+}
+//管理平台获取轮播图列表
+async function getimgtablist(ctx) {
+    const data = ctx.request.body;
+    let sql = 'SELECT s.*,u.`user_name` from upimg as s LEFT JOIN user as u on s.user_id = u.id';
+    let arr = [];
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [list] = await connection.execute(sql, arr);
+    await connection.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            data: list
+        }
+    }
+}
+//前台页面获取轮播图
+async function clientablist(ctx) {
+    const data = ctx.request.body;
+    let sql = 'SELECT s.*,u.`user_name` from upimg as s LEFT JOIN user as u on s.user_id = u.id';
+    let arr = [];
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [list] = await connection.execute(sql, arr);
+    await connection.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            data: list
+        }
+    }
+}
 export default {
     saveXML,
     saveUpFile,
@@ -961,4 +1065,9 @@ export default {
     testaa,
     clientad,
     listClient,
+    getproductById,
+    updateimg,
+    getimgtablist,
+    clientablist,
+    listProduct
 }

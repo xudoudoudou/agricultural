@@ -15,6 +15,7 @@
         </el-dialog>
         <div class="el-row">
             <div class="el-col top_right">
+                <!-- 头像 -->
                 <p @click.stop="showUserInfo"></p>
                 <div class="user_info" @click.stop="">
                     <dl class="clearfix">
@@ -32,7 +33,7 @@
                 <i class="fa fa-bars" @click="isCollapse=!isCollapse"></i>
             </div>
             <div class="el-col el-col-1" style="width:calc(100% - 440px);">
-                <el-menu theme="dark" :default-active="headerCurRouter" class="el-menu-demo" mode="horizontal" router>
+                <!-- <el-menu theme="dark" :default-active="headerCurRouter" class="el-menu-demo" mode="horizontal" router>
                     <template v-for="item in getMenu" v-if="item.meta.show">
                         <el-submenu :key="item.path" :index="item.path" v-if="item.meta.showSub">
                             <template slot="title">{{item.meta.title}}</template>
@@ -44,7 +45,7 @@
                         </el-submenu>
                         <el-menu-item :key="item.path" :index="item.path" v-else-if="item.meta.show">{{item.meta.title}}</el-menu-item>
                     </template>
-                </el-menu>
+                </el-menu> -->
             </div>
         </div>
         <div class="menu">

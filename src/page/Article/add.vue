@@ -4,24 +4,25 @@
             <el-form-item label="文章标题" prop="title">
                 <el-input v-model="data.title"></el-input>
             </el-form-item>
-            <el-form-item label="文章分类" prop="sort_id">
+            <el-form-item label="产品分类" prop="sort_id">
                 <el-cascader :options="sort_data" v-model="sort_id" change-on-select :props="defaultProps"></el-cascader>
             </el-form-item>
-            <!-- <el-form-item label="文章概要" prop="description">
-                <el-input type="textarea" v-model="data.description"></el-input>
-            </el-form-item> -->
             <el-form-item label="作者">
                 <el-input readonly="readonly" :value="data.user_name" style="width:217px;opacity: 0.5"></el-input>
             </el-form-item>
             <el-form-item label="阅读权限" prop="read_type">
                 <el-slider v-model="data.read_type" :format-tooltip="formatTooltip" :min="1" :max="4"></el-slider>
             </el-form-item>
-            <el-form-item label="封面图片" prop="pic">
-                <el-input v-model="data.pic"></el-input> <up-file ref="upload" :upload="{}" @successUpload="successUpload"></up-file> <el-button @click="upImg" :disabled="grade.upFile">上传图片</el-button>
+             <el-form-item label="简单描述" prop="maincontent">
+                <el-input type="textarea" v-model="data.maincontent"></el-input>
             </el-form-item>
-            <el-form-item label="文章内容" prop="content">
-                <!-- <VueEditor :content="data.content" :height="250" :auto-height="false" @change="changeContent"></VueEditor> -->
-                <el-input type="textarea" v-model="data.content" :height="250"></el-input>
+            <el-form-item label="上传图片" prop="pic">
+                <el-input v-model="data.pic"></el-input>
+                 <up-file ref="upload" :upload="{}" @successUpload="successUpload"></up-file> 
+                 <el-button @click="upImg" :disabled="grade.upFile">上传图片</el-button>
+            </el-form-item>
+            <el-form-item label="详细内容" prop="content">
+                <VueEditor :content="data.content" :height="250" :auto-height="false" @change="changeContent"></VueEditor>
             </el-form-item>
             <el-form-item style="text-align: right">
                 <el-button @click="backList">返回列表</el-button>
@@ -56,20 +57,20 @@
                     user_name:'',
                     pic: '',
                     read_type:4,
-                    content: ''
+                    content: '',
+                    maincontent:''
                 },
                 rules: {
                     sort_id:{required: true, message: '分类不能为空'},
                     title:[{
                         required: true, message: '标题不能为空', trigger: 'change'
-                    },{
-                        pattern:/^.{1,100}$/, message: '请输入1-100个字符的文章标题', trigger: 'blur'
-                    }],
-                    // description:[{
-                    //     required: true, message: '文章概要不能为空', trigger: 'change'
-                    // },{
-                    //     pattern:/^.{5,255}$/, message: '请输入5-255个字符的文章概要', trigger: 'blur'
-                    // }],
+                    },
+                    { min: 3, max: 10, message: '长度不超过10个字符', trigger: 'blur' }                      
+                    ],
+                    maincontent:[
+                        // { required: true, message: '产品描述不能为空', trigger: 'change'},
+                        { min: 0, max: 70, message: '长度不超过70个字符', trigger: 'blur' }
+                    ],
                     read_type: [{
                         required: true,type:'number',min:1,max:4, message: '请选择阅读权限', trigger: 'change'
                     }],
@@ -119,6 +120,8 @@
             successUpload(data){
                 this.data.pic = data.filename;
                 this.data.content += '<img src="'+data.filename+'" />';
+                // this.data.content= data.filename;
+                
             }
         },
         mounted() {

@@ -1,51 +1,63 @@
 <template>
   <div class="productdeital">
-      <div class="client_content">
-        <el-form v-model="formdata">
-          <h1><span>产品展示</span></h1>
+      <div class="client_content">        
+          <h1><span>产品描述</span></h1>
         <el-row class="row">
-          <el-col :span="12" class="col1">
-            <div class="box">
-              <img :src="formdata.url" width="550px" height="350px">
-            </div>
-          </el-col>
-          <el-col :span="12" class="col2">
-            <div class="describe">
-              <h3>{{formdata.title}}</h3>
-              <p>{{formdata.content}}</p>
-            </div>
+            <el-col :span="24">
+             <div>{{formdata.title}}</div>
+              <div class="sidebar_content" v-loading="loading">
+                  <div class="article_content" v-html="formdata.content">文章内容</div>
+              </div>
+              <div class="sidebar_foot">
+                  <p class="left">上一条：<span v-if="!formdata.next.title">已经没有上一条数据</span>
+                      <a @click="getActiveContent(formdata.next.id)" href="javascript:void 0">{{formdata.next.title}}</a>
+                  </p>
+                  <p class="right">下一条：<span v-if="!formdata.prev.title">已经没有下一条数据</span>
+                      <a @click="getActiveContent(formdata.prev.id)" href="javascript:void 0">{{formdata.prev.title}}</a>
+                  </p>
+              </div>
           </el-col>
         </el-row>
-         <h1><span>产品描述</span></h1>
-          <div class="productimg">
-            <ul>
-              <li v-for="(item,index) in formdata.productimglist" :key="index">
-                <img :src="item.plurl" width="578px" height="600px">
-              </li>
-            </ul>
-          </div>
-        </el-form>
       </div>
   </div>
 </template>
 <script>
 import {mapState} from'vuex'
+    import {ajax,storage} from 'utils';
+    import common from 'common';
 export default {
   data(){
     return{
-      formdata:JSON.parse(this.$route.query.item),
+      page_grade:common.page_grade,     
+      loading:false,
+      formdata:{
+            title:'',
+            content:'',
+            prev:{id:0,title:''},
+            next:{id:0,title:''}
+        }
     }
     
   },
+  mounted(){
+    this.getActiveContent(this.$route.query.id)
+  },
   created(){
-      this.getimglist()
+    },
+     watch: {
+    // 监测路由变化
+      '$route': 'getActiveContent'
     },
   methods:{
-    getimglist(){
-      // let bb = this.b.productlist
-      // bb = JSON.parse(bb)
-      console.log(this.formdata.productimglist)
-    }
+    getActiveContent(id){
+        this.loading = !0;
+        ajax.call(this, '/getproductById', {id}, (obj, err) => {
+            this.loading = !1;
+            Object.getOwnPropertyNames(this.formdata).forEach(key => {
+                this.$set(this.formdata,key,obj[key]);
+            });
+        })
+    },
   },
   computed:{
     ...mapState([ 'b'])
@@ -53,6 +65,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.sidebar_foot{
+  margin-top:10px;
+  padding:0px 5px;
+  height:30px;
+  line-height: 25px;
+  box-shadow: 0 1px grey;
+  .left{float:left}
+  .right{float:right}
+}
 .client_content{
   background: #ffffff;
   h1{

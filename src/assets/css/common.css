@@ -1,0 +1,28 @@
+/* 首页轮播图 */
+
+.tabimg img {
+    height: 350px;
+    width: 100%;
+}
+
+/* 旅游板块轮播图 */
+
+.tourism_tab img {
+    width: 100%;
+}
+
+/* 图片墙 */
+
+.project_describle {
+    padding: 5px;
+}
+
+.v_html img {
+    max-width: 780px;
+}
+
+/* 产品描述 */
+
+.article_content img {
+    max-width: 1160px;
+}

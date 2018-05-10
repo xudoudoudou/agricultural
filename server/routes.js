@@ -38,6 +38,11 @@ const urls = {
     'testaa': {},
     'clientad': {},//新增产品
     'listClient':{},//展示产品列表
+    'getproductById': { userType: 4},//展示产品详情
+    'updateimg':{},//上传图片
+    'getimgtablist': {},//获取轮播图列表
+    'clientablist': {},//前台获取轮播图列表
+    'listProduct': {},
 };
 
 Object.getOwnPropertyNames(urls).forEach(key=>{

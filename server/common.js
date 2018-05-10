@@ -43,6 +43,8 @@ export default {
         'news':'新闻',
         'article':'文章',
         'course':'教程',
+        'firstimg': '首页轮播图',
+        'minimg': '小轮播图',
     },
     deal_results : {
         lack:'#失败：参数错误！',
