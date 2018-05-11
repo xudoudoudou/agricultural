@@ -14,7 +14,7 @@
                 <span class="calltitle"><strong>在线QQ:</strong></span>
                 <span>
                   <a href="tencent://message/?uin=1578771331&Site=&Menu=yes">
-                    <img title="点击这里给我发消息" style="margin-top:5px" class="qqimg" :src="contact.qqurl" width="90px" height="30px">
+                    <img title="点击这里给我发消息" style="margin-top:5px" class="qqimg" :src="qqurl" width="90px" height="30px">
                   </a>
                 </span>
               </p>
@@ -29,7 +29,7 @@
         <el-row class="row1">
           <el-col :span="24">
             <div class="grid-content">
-              <img :src="contact.mapurl">
+              <img :src="mapurl">
             </div>
             </el-col>
         </el-row>
@@ -39,8 +39,9 @@
 </template>
 <script>
 import QRCode from 'qrcodejs2'  
+import {ajax,storage} from 'utils';
+import common from 'common';
 export default {
- 
   data(){
     return{
       contact:{
@@ -48,10 +49,11 @@ export default {
         caller:'刘湘东(经理)',
         phone:18386293533,
         email:'1578771331@qq.com',
-        ems:421000,
-        qqurl:require('../../assets/img/qq.gif'),
-        mapurl:require('../../assets/img/map.jpg')
-      }
+        ems:421000,       
+        weburl:'www.baidu.com'
+      },
+      qqurl:require('../../assets/img/qq.gif'),
+        mapurl:require('../../assets/img/map.jpg'),
     }
   },
   methods:{
@@ -59,15 +61,28 @@ export default {
      let qssss=new QRCode('qs',{
        width:150,
        height:150,
-       text:'http://localhost:3000/client.html#/call'
+       text:this.contact.weburl
      })
-     console.log('qs',qssss)
-   }
+    },
+    getcompanydata(){
+      ajax.call(this, '/companydata', this.contact, (obj, err) => {                   
+        if (!err) {
+          let data=obj.data
+          data.map(i=>{
+              this.contact=i
+              return i
+          })                   
+        }
+      });
+    }
   },
   created(){
+    
   },
   mounted(){
     this.getqs()
+    this.getcompanydata()
+
   },
 }
 </script>
@@ -90,6 +105,9 @@ export default {
         span{
           font-size: 30px;
           color: rgb(141, 138, 138);
+          // border:1px solid red;
+          // word-wrap:break-word;  
+          // word-break:break-all;
         }
       }
   .row{

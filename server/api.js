@@ -1036,6 +1036,119 @@ async function clientablist(ctx) {
         }
     }
 }
+//展示公司详情
+async function companydata(ctx) {
+    const data = ctx.request.body;
+    let sql = 'SELECT c.* from company as c LEFT JOIN user as u on c.user_id = u.id';
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [list] = await connection.execute(sql, []);
+    await connection.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            data: list
+        }
+    }
+}
+//编辑公司详情
+async function editcompanydata(ctx) {
+    const data = ctx.request.body;
+    let err;
+    const obj = {
+        company: '公司名称',
+        profile: '公司简介',
+        legal: '公司法人',
+        operation: '经营范围',
+        organ: '发证机关',
+        license: '营业执照号',
+        establishment: '成立日期',
+        Registered: '注册资本',
+        companytype: '公司类型',
+        operationStateL: '经营状态',
+        companycity: '所属城市',
+        type: '公司性质',
+        code: '顺企编码',
+        Shareholder: '股东人',
+        post: '股东职位',
+        Supervisorperson: '监事人',
+        Supervisor: '职位监视',
+        addres: '地址',
+        caller: '联系人',
+        phone: '电话',
+        email: '邮箱',
+        ems: '邮编',
+        weburl: '公司域名'
+    };
+    for (let key in obj) {
+        if (!data[key]) {
+            err = obj[key] + '不能为空！';
+            break;
+        }
+    }
+    const array = [
+        data.read_type >> 0,
+        data.company,
+        data.profile,
+        data.legal,
+        data.operation,
+        data.organ,
+        data.license,
+        data.establishment,
+        data.Registered,
+        data.companytype,
+        data.operationStateL,
+        data.companycity,
+        data.type,
+        data.code,
+        data.Shareholder,
+        data.post,
+        data.Supervisorperson,
+        data.Supervisor,
+        data.addres,
+        data.caller,
+        data.phone,
+        data.email,
+        data.ems,
+        data.weburl,
+    ];
+    if (!err) {
+        const user = ctx.state.userInfo;//获取用户信息
+        const connection = await mysql.createConnection(config.mysqlDB);
+        if (data.id > 0) {
+            //编辑文章
+            if (user.user_type > 2) {
+                //非管理员需要验证是否为自己的文章(同时普通管理员也可修改超管文章)
+                const [rows] = await connection.execute('SELECT `id` FROM `company` where `id`=? and `user_id`=?', [data.id, user.id]);
+                if (!rows.length) {
+                    return ctx.body = {
+                        success: false,
+                        message: '无权编辑此文章',
+                        data: {}
+                    }
+                }
+            }
+            array.push(data.id);
+            
+            const [result] = await connection.execute('UPDATE `company` SET `read_type`=?,`company`=?,`profile` =?,`legal` =?,`operation` =?,`organ` =?,`license` =?,`establishment` =?,`Registered` =?,`companytype` =?,`operationStateL` =?,`companycity` =?,`type` =?,`code` =?,`Shareholder` =?,`post` =?,`Supervisorperson` =?,`Supervisor` =?,`addres` =?,`caller` =?,`phone` =?,`email` =?,`ems` =?, `weburl` =? where `id`=?', array);
+            err = result.affectedRows === 1 ? '' : '修改失败';
+        } 
+        // else {
+        //     //添加文章
+        //     array.push(new Date().toLocaleString());//添加日期
+        //     array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
+        //     array.push(user.id);//用户信息
+        //     const [result] = await connection.execute('INSERT INTO `company` (company,create_time,user_id) VALUES (?,?,?)', array);
+        //     err = result.affectedRows === 1 ? '' : '图片添加失败';
+        // }
+        await connection.end();
+    }
+    ctx.body = {
+        success: !err,
+        message: err,
+        data: {}
+    }
+}
 export default {
     saveXML,
     saveUpFile,
@@ -1069,5 +1182,7 @@ export default {
     updateimg,
     getimgtablist,
     clientablist,
-    listProduct
+    listProduct,
+    companydata,
+    editcompanydata
 }

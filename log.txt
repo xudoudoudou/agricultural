@@ -9880,3 +9880,317 @@ GET /upFile/1525693351384.jpg 2ms
 POST /api/getproductById 8ms 
 POST /api/getproductById 9ms 
 POST /api/getproductById 7ms 
+GET /upFile/1525687141347.jpg 1ms 
+POST /api/listSort 5ms 
+POST /api/listArticle 11ms 
+POST /api/listClient 12ms 
+POST /api/clientablist 10ms 
+GET /upFile/1525765884496.jpg 1ms 
+GET /upFile/1525829299895.jpg 4ms 
+GET /upFile/1525846856335.jpg 3ms 
+GET /upFile/1525846956018.jpg 2ms 
+GET /index.html 2ms 
+GET /favicon.ico 1ms 
+GET /api/editcompanydata 0ms 
+【非法请求链接：/api/editcompanydata】GET /api/upimg 0ms 
+【非法请求链接：/api/upimg】GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+【非法请求链接：/api/companydata】POST /api/companydata 1ms 
+【非法请求链接：/api/companydata】POST /api/companydata 2ms 
+GET /upFile/1525687141347.jpg 3ms 
+【非法请求链接：/api/companydata】POST /api/companydata 0ms 
+GET /upFile/1525687141347.jpg 2ms 
+POST /api/companydata 1ms 
+【非法请求链接：/api/companydata】【token验证错误！】POST /api/companydata 4ms 
+POST /api/login 172ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 7ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 67ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 2ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 40ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 1ms 
+POST /api/editcompanydata 2ms 
+POST /api/editcompanydata 1ms 
+GET /upFile/1525687141347.jpg 2ms 
+server errorError: Unknown column 'company' in 'field list'
+{"request":{"method":"POST","url":"/api/editcompanydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"278","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/editcompanydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 10ms 
+GET /upFile/1525687141347.jpg 2ms 
+GET /upFile/1525687141347.jpg 2ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/editcompanydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","content-length":"255","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/editcompanydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/editcompanydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"255","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/editcompanydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/editcompanydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"255","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/editcompanydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 2ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 2ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+POST /api/getimgtablist 13ms 
+POST /api/listUpFile 15ms 
+GET /upFile/1525687132842.jpg 7ms 
+GET /upFile/1525687227371.jpg 5ms 
+GET /upFile/1525690053942.jpg 4ms 
+GET /upFile/1525691018604.jpg 3ms 
+GET /upFile/1525691480473.jpg 6ms 
+GET /upFile/1525692652432.jpg 7ms 
+GET /upFile/1525693126810.jpg 6ms 
+GET /upFile/1525693351384.jpg 6ms 
+GET /upFile/1525693355472.jpg 5ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 41ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 48ms 
+server errorError: Table 'vue_cms.companydata' doesn't exist
+{"request":{"method":"POST","url":"/api/companydata","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk0NjExMCwiZXhwIjoxNTI1OTUzMzEwfQ.Fdy3sI-SfwIvvGYn2MSESDtOpykG5y6FQG_xWHGn5M8","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","cache-control":"no-cache","pragma":"no-cache","content-length":"227","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/companydata","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+GET /upFile/1525687141347.jpg 67ms 
+POST /api/companydata 57ms 
+POST /api/companydata 9ms 
+POST /api/companydata 12ms 
+POST /api/companydata 8ms 
+POST /api/companydata 7ms 
+GET /upFile/1525687141347.jpg 2ms 
+POST /api/companydata 7ms 
+POST /api/editcompanydata 23ms 
+GET /upFile/1525687141347.jpg 2ms 
+POST /api/companydata 7ms 
+GET /upFile/1525687141347.jpg 1ms 
+POST /api/companydata 9ms 
+GET /upFile/1525687141347.jpg 1ms 
+POST /api/companydata 8ms 
+GET /upFile/1525687141347.jpg 2ms 
+POST /api/companydata 10ms 
+POST /api/companydata 11ms 
+POST /api/editcompanydata 9ms 
+POST /api/companydata 9ms 
+GET /upFile/1525687141347.jpg 1ms 
+POST /api/companydata 6ms 
+POST /api/companydata 7ms 
+POST /api/editcompanydata 11ms 
+POST /api/companydata 12ms 
+POST /api/companydata 6ms 
+POST /api/companydata 7ms 
+POST /api/editcompanydata 7ms 
+POST /api/companydata 12ms 
+POST /api/companydata 8ms 
+POST /api/companydata 11ms 
+POST /api/companydata 9ms 
+POST /api/editcompanydata 9ms 
+POST /api/companydata 8ms 
+POST /api/companydata 7ms 
+POST /api/companydata 9ms 
+POST /api/editcompanydata 7ms 
+POST /api/companydata 7ms 
+POST /api/companydata 6ms 
+POST /api/editcompanydata 6ms 
+POST /api/companydata 11ms 
+POST /api/companydata 7ms 
+POST /api/companydata 7ms 
+POST /api/companydata 9ms 
+POST /api/companydata 10ms 
+POST /api/companydata 7ms 
+POST /api/companydata 6ms 
+POST /api/companydata 8ms 
+POST /api/companydata 9ms 
+POST /api/companydata 6ms 
+POST /api/companydata 9ms 
+POST /api/companydata 9ms 
+POST /api/companydata 7ms 
+POST /api/companydata 13ms 
+POST /api/companydata 7ms 
+POST /api/companydata 11ms 
+POST /api/companydata 7ms 
+POST /api/companydata 7ms 
+POST /api/companydata 7ms 
+POST /api/companydata 6ms 
+POST /api/companydata 7ms 
+POST /api/companydata 13ms 
+POST /api/editcompanydata 9ms 
+POST /api/companydata 7ms 
+POST /api/companydata 11ms 
+POST /api/companydata 13ms 
+POST /api/editcompanydata 6ms 
+POST /api/companydata 7ms 
+POST /api/companydata 8ms 
+POST /api/clientablist 9ms 
+POST /api/listClient 16ms 
+GET /upFile/1525846856335.jpg 4ms 
+GET /upFile/1525829299895.jpg 5ms 
+GET /upFile/1525846956018.jpg 3ms 
+GET /upFile/1525765884496.jpg 9ms 
+POST /api/listProduct 12ms 
+GET /upFile/1525919280447.jpg 7ms 
+GET /upFile/1525687132842.jpg 7ms 
+GET /upFile/1525693355472.jpg 6ms 
+GET /upFile/1525690053942.jpg 5ms 
+GET /upFile/1525687227371.jpg 4ms 
+POST /api/companydata 7ms 
+POST /api/listClient 9ms 
+POST /api/clientablist 10ms 
+POST /api/listProduct 12ms 
+GET /upFile/1525919280447.jpg 8ms 
+GET /upFile/1525687132842.jpg 7ms 
+GET /upFile/1525693355472.jpg 7ms 
+GET /upFile/1525690053942.jpg 5ms 
+GET /upFile/1525687227371.jpg 4ms 
+POST /api/companydata 11ms 
+POST /api/listClient 11ms 
+POST /api/clientablist 10ms 
+POST /api/companydata 7ms 
+POST /api/listProduct 7ms 
+POST /api/listClient 47ms 
+POST /api/clientablist 52ms 
+POST /api/companydata 7ms 
+POST /api/listClient 13ms 
+POST /api/clientablist 8ms 
+POST /api/listProduct 15ms 
+GET /upFile/1525937993709.jpg 7ms 
+GET /upFile/1525937842332.jpg 4ms 
+GET /upFile/1525937796757.jpg 3ms 
+GET /upFile/1525860606532.jpg 6ms 
+GET /upFile/1525860611350.jpg 6ms 
+GET /upFile/1525860617542.jpg 5ms 
+GET /upFile/1525860649083.jpg 3ms 
+POST /api/getproductById 10ms 
+GET /upFile/1525693351384.jpg 2ms 
+POST /api/listClient 14ms 
+POST /api/listProduct 14ms 
+POST /api/clientablist 14ms 
+POST /api/getproductById 14ms 
+GET /upFile/1525845935314.jpg 3ms 
+GET /upFile/1525846736591.jpg 2ms 
+GET /upFile/1525782874206.jpg 4ms 
+POST /api/listClient 13ms 
+POST /api/clientablist 11ms 
+POST /api/listProduct 16ms 
+POST /api/listUpFile 10ms 
+GET /upFile/1525687132842.jpg 9ms 
+GET /upFile/1525687227371.jpg 8ms 
+GET /upFile/1525690053942.jpg 7ms 
+GET /upFile/1525691018604.jpg 6ms 
+GET /upFile/1525692652432.jpg 5ms 
+GET /upFile/1525691480473.jpg 6ms 
+GET /upFile/1525693126810.jpg 5ms 
+GET /upFile/1525693351384.jpg 5ms 
+GET /upFile/1525693355472.jpg 3ms 
+POST /api/getimgtablist 8ms 
+POST /api/listUser 7ms 
+POST /api/listUser 6ms 
+POST /api/listUpFile 11ms 
+POST /api/getimgtablist 8ms 
+GET /upFile/1525829299895.jpg 5ms 
+GET /upFile/1525846856335.jpg 4ms 
+GET /upFile/1525846956018.jpg 4ms 
+POST /api/upFile 82ms 
+GET /upFile/1525952764561.jpg 1ms 
+POST /api/updateimg 6ms 
+POST /api/getimgtablist 6ms 
+POST /api/listClient 9ms 
+POST /api/clientablist 9ms 
+GET /upFile/1525952764561.jpg 1ms 
+POST /api/listClient 18ms 
+POST /api/clientablist 11ms 
+POST /api/listProduct 16ms 
+POST /api/companydata 7ms 
+POST /api/clientablist 6ms 
+POST /api/listClient 9ms 
+POST /api/listProduct 7ms 
+GET /upFile/1525687227371.jpg 2ms 
+POST /api/companydata 9ms 
+POST /api/listProduct 10ms 
+POST /api/listClient 11ms 
+POST /api/clientablist 11ms 
+POST /api/companydata 8ms 
+POST /api/listClient 11ms 
+POST /api/clientablist 21ms 
+POST /api/listProduct 29ms 
+POST /api/companydata 7ms 
+POST /api/clientablist 8ms 
+POST /api/listClient 11ms 
+POST /api/listProduct 8ms 
+GET /upFile/1525687227371.jpg 2ms 
+POST /api/companydata 6ms 
+POST /api/listClient 13ms 
+POST /api/clientablist 14ms 
+POST /api/listProduct 18ms 
+POST /api/companydata 8ms 
+POST /api/listClient 15ms 
+POST /api/clientablist 8ms 
+GET /upFile/1525765559831.jpg 3ms 
+GET /upFile/1525765563144.jpg 2ms 
+GET /upFile/1525764965987.jpg 10ms 
+GET /upFile/1525764969731.jpg 10ms 
+GET /upFile/1525764974289.jpg 7ms 
+GET /upFile/1525764978901.jpg 6ms 
+GET /upFile/1525916324587.jpg 5ms 
+GET /upFile/1525915724241.jpg 8ms 
+POST /api/listProduct 13ms 
+POST /api/companydata 7ms 
+POST /api/listProduct 10ms 
+POST /api/getproductById 9ms 
+GET /upFile/1525693351384.jpg 3ms 
+POST /api/getproductById 14ms 
+POST /api/listClient 19ms 
+POST /api/listProduct 16ms 
+POST /api/clientablist 11ms 
+POST /api/getproductById 9ms 
+POST /api/listClient 13ms 
+POST /api/clientablist 11ms 
+POST /api/listProduct 14ms 
+POST /api/listProduct 8ms 
+POST /api/companydata 10ms 
+POST /api/listClient 11ms 
+POST /api/clientablist 10ms 
+POST /api/listClient 11ms 
+POST /api/clientablist 9ms 
+POST /api/listProduct 14ms 
+POST /api/clientablist 11ms 
+POST /api/listClient 10ms 
+POST /api/listClient 12ms 
+POST /api/listProduct 14ms 
+POST /api/clientablist 9ms 
+POST /api/getproductById 14ms 
+GET /upFile/1525782874206.jpg 3ms 
+GET /upFile/1525845935314.jpg 3ms 
+GET /upFile/1525846736591.jpg 2ms 
+POST /api/listClient 15ms 
+POST /api/listProduct 13ms 
+POST /api/clientablist 14ms 
+【token验证错误！】POST /api/companydata 1ms 
+GET /upFile/1525687141347.jpg 1ms 
+【token验证错误！】POST /api/getimgtablist 0ms 
+POST /api/login 124ms 
+POST /api/getimgtablist 7ms 
+POST /api/companydata 7ms 
+【token验证错误！】POST /api/getimgtablist 1ms 
+server errorError: connect ETIMEDOUT
+{"request":{"method":"POST","url":"/api/login","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk1MzM1OCwiZXhwIjoxNTI1OTYwNTU4fQ.uzY5gOW88qSfSs63Cp69oFu5otzUAXslYkp6Z1T4jcE","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","content-length":"34","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/login","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+server errorError: connect ETIMEDOUT
+{"request":{"method":"POST","url":"/api/login","header":{"cookie":"SID=s%3AFAxVwtZB5LZUuOONVxFnO1XUqDU70oqa.JZVVhWW%2FKSD4qyPu9d3iB9TpCXSWGfqQivq6Z10Z4FU; sid=b8c4a9b3-e10c-4595-bc3d-47c3adaacba2; kerbores=ZhMDpU3Sk16hpKR9udjNXyIsx2cI2st1eiVbTF+mkj7vRu7H40dmBdrv1dVpghVxtO9t7zYN2dMJtX+xLoXGaSzJ8BrTibsV8Pm5Nq7qVrc=","accept-language":"zh-CN,zh;q=0.8","accept-encoding":"gzip, deflate, br","referer":"http://localhost:3000/","content-type":"application/x-www-form-urlencoded; charset=UTF-8","user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6IjEyNy4wLjAuMSIsImlkIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfdHlwZSI6MSwidXNlcl9lbWFpbCI6IjEwMDAwQHFxLmNvbSIsImNyZWF0ZV90aW1lIjpudWxsLCJsb2dpbl9pcCI6IjEyNy4wLjAuMSIsInVwZGF0ZV90aW1lIjoiMjAxOC0wNS0wN1QwOTo1OTo1My4wMDBaIiwidXNlcl9waWMiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdXBGaWxlLzE1MjU2ODcxNDEzNDcuanBnIiwidXNlcl9leHRlbmQiOm51bGwsImlhdCI6MTUyNTk1MzM1OCwiZXhwIjoxNTI1OTYwNTU4fQ.uzY5gOW88qSfSs63Cp69oFu5otzUAXslYkp6Z1T4jcE","origin":"http://localhost:3000","accept":"application/json, text/plain, */*","content-length":"34","connection":"close","host":"localhost:3001"}},"response":{"status":404,"message":"Not Found","header":{}},"app":{"subdomainOffset":2,"proxy":false,"env":"development"},"originalUrl":"/api/login","req":"<original node req>","res":"<original node res>","socket":"<original node socket>"}
+【token验证错误！】POST /api/listClient 0ms 
+【token验证错误！】POST /api/listProduct 2ms 
+【token验证错误！】POST /api/clientablist 0ms 
+【token验证错误！】POST /api/listClient 1ms 
+【token验证错误！】POST /api/clientablist 1ms 
+【token验证错误！】POST /api/listProduct 1ms 

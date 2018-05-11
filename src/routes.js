@@ -11,6 +11,7 @@ import userAdd from 'page/User/add.vue'
 // import test from 'page/test.vue'
 import clientlist from 'page/Clientmanger/clientlist.vue'
 import upimg from 'page/UpFile/upimg.vue'
+import Company from 'page/Company/company.vue'
 //todo 记录
 /*
 *
@@ -145,6 +146,26 @@ export default {
                     },
                     component: upimg
                 }]
+        },
+        {
+            path: '/comp',
+            meta: {
+                verify: true,
+                title: '公司管理',
+                icon: 'fa fa-upload'
+            },
+            component: Home,
+            redirect: '/comp/company',
+            children: [{
+                path: 'company',
+                meta: {
+                    verify: true,
+                    grade: common.page_grade.listUpFile,
+                    title: '公司信息',
+                    icon: 'fa fa-files-o'
+                },
+                component: Company
+            }]
         },
         //--------------
         {

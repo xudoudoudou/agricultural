@@ -56,7 +56,7 @@
               </tr>
               <tr>
                 <td class="td1">经营状态：</td>
-                <td class="td2">{{companydata.operationState}}</td>
+                <td class="td2">{{companydata.operationStateL}}</td>
               </tr>
               <tr>
                 <td class="td1">经营执照：</td>
@@ -95,6 +95,8 @@
 </template>
 <script>
 import companyData from '../data/companydata';
+import {ajax,storage} from 'utils';
+import common from 'common';
 export default {
   data(){
     return{
@@ -133,8 +135,23 @@ export default {
   },
   methods:{
     getcompany(){
-      this.companydata=Object.assign({},companyData)
+       this.companydata=Object.assign({},companyData)
+    },
+    getcompanydata(){
+      ajax.call(this, '/companydata', this.companydata, (obj, err) => {                   
+          if (!err) {
+              let data=obj.data
+              data.map(i=>{
+                  this.companydata=i
+                  return i
+              })
+              console.log('obj',data)                      
+          }
+      });
     }
+  },
+  mounted(){
+    this.getcompanydata()
   }
 }
 </script>
@@ -154,7 +171,7 @@ export default {
         font-weight: normal;
         position: relative;
         padding: 5px;
-        span{
+        span{        
           font-size: 20px;
           color: #222;
         }
@@ -171,6 +188,8 @@ export default {
           font-size: 16px;
           line-height: 32px;
           color: #888;
+          word-wrap:break-word;  
+          word-break:break-all;
         }
       }
     }
@@ -189,6 +208,8 @@ export default {
         }
         .td2{
           padding-left: 15px;
+          word-wrap:break-word;  
+          word-break:break-all;
         }
         
       }
