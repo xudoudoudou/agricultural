@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div >
      <el-carousel :interval="5000" arrow="always" style="height:350px">
         <el-carousel-item style="height:350px" v-for="(item,index) in imglist" :key="index">
           <div class="tabimg" v-html="item" height="350px" width="100%"></div>
           <!-- <img :src="item.imgurl" height="350px" width="100%"> -->
         </el-carousel-item>
       </el-carousel>
-      <div class="client_content">
+      <div class="cclient_content">
         <p style="text-align:center; border-bottom:1px solid gainsboro;font-size:19px;color:grey;padding:10px 0">我们的服务</p>
         <div class="services">
-          <ul v-loading="loading">
+          <ul >
             <li v-for="(item,index) in showdata1" :key="index">
               <img :src='item.article_extend' width="250px" height="150px">
               <div>
@@ -66,14 +66,12 @@ export default {
       this.getimgtablist()
   },
   methods:{
-    updated() {
-        $('.tabimg').find('p').css('width', '100%');
-     },
     //获取轮播图图片
      getimgtablist(){
-      ajax.call(this, '/clientablist', this.data, (obj, err) => {   
-          if (!err) {
-            let data=obj.data
+       this.axios.post('/clientablist',{
+          data: this.data
+        }).then((res) => {
+          let data=res.data.data.data
             let abr=[]
             data.filter(i=>{
               if(i.id==30){
@@ -92,8 +90,9 @@ export default {
                 })
               }                   
             })
-          }
-      });
+        }).catch((err) => {
+          console.log(err)
+        })
     },
     showproducts(item){
       this.$router.push({
@@ -104,12 +103,10 @@ export default {
       })
     },
     ajaxData(){
-      this.loading=true      
-      ajax.call(this, '/listClient', this.data, (obj, err) => {
-        this.loading=false
-          let temp=[]
-          // if (!err) { 
-            this.showdata1= obj.data.filter((i)=>{
+      this.axios.post('/listClient',{data:this.data}).then((res)=>{
+        let data=res.data.data.data
+        let temp=[]
+        this.showdata1= data.filter((i)=>{
               let img=JSON.parse(i.article_extend).pic
                   if(i.sort_name=="服务列表"&& i.passed==0){
                         temp.push(i)
@@ -121,33 +118,23 @@ export default {
                     
                   }) 
               return i.sort_name=="服务列表"&& i.passed==0              
-            }) 
-          // }else{
-            // this.loading=false
-            //   this.$alert('网络出错了,请稍后在试哦！', '', {
-            //     confirmButtonText: '确定',
-            //     callback: action => {
-            //       this.$message({
-            //         type: 'info',
-            //         message: `action: ${ action }`
-            //       });
-            //     }
-            //   });
-          // }
-      });
+            })
+        }).catch((err) => {
+          console.log(err)
+        })
     },
     ajaxData1(){
-      ajax.call(this, '/listProduct', this.data, (obj, err) => {       
-          if (!err) {               
-            this.productlist=obj.data      
-            this.productlist.map((i)=>{
-              let img=JSON.parse(i.article_extend).pic
-              i.article_extend=img
-              return i    
-            })  
-          }
-          
-      });
+       this.axios.post('/listProduct',{data:this.data}).then((res)=>{
+         let data=res.data.data.data
+         this.productlist=data
+          this.productlist.map((i)=>{
+            let img=JSON.parse(i.article_extend).pic
+            i.article_extend=img
+            return i    
+          })  
+        }).catch((err) => {
+          console.log(err)
+        })
       
     }
       
@@ -165,7 +152,9 @@ export default {
   color: gainsboro
 
 }
-.client_content{
+.cclient_content{
+  width: 1200px;
+  margin: 0 auto;
   .services{
     ul{
       padding: 0px;

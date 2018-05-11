@@ -512,7 +512,7 @@ async function updateArticle(ctx) {
             //编辑文章
             if(user.user_type > 2){
                 //非管理员需要验证是否为自己的文章(同时普通管理员也可修改超管文章)
-                const [rows] = await connection.execute('SELECT `id` FROM `article` where `id`=? and passed=1 and `user_id`=?', [data.id,user.id]);
+                const [rows] = await connection.execute('SELECT `id` FROM `article` where `id`=? and `user_id`=?', [data.id,user.id]);
                 if(!rows.length){
                     return ctx.body = {
                         success: false,
@@ -1133,14 +1133,14 @@ async function editcompanydata(ctx) {
             const [result] = await connection.execute('UPDATE `company` SET `read_type`=?,`company`=?,`profile` =?,`legal` =?,`operation` =?,`organ` =?,`license` =?,`establishment` =?,`Registered` =?,`companytype` =?,`operationStateL` =?,`companycity` =?,`type` =?,`code` =?,`Shareholder` =?,`post` =?,`Supervisorperson` =?,`Supervisor` =?,`addres` =?,`caller` =?,`phone` =?,`email` =?,`ems` =?, `weburl` =? where `id`=?', array);
             err = result.affectedRows === 1 ? '' : '修改失败';
         } 
-        // else {
-        //     //添加文章
-        //     array.push(new Date().toLocaleString());//添加日期
-        //     array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
-        //     array.push(user.id);//用户信息
-        //     const [result] = await connection.execute('INSERT INTO `company` (company,create_time,user_id) VALUES (?,?,?)', array);
-        //     err = result.affectedRows === 1 ? '' : '图片添加失败';
-        // }
+         else {
+            //添加文章
+            array.push(new Date().toLocaleString());//添加日期
+            array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
+            array.push(user.id);//用户信息
+            const [result] = await connection.execute('INSERT INTO `company` (company,create_time,user_id) VALUES (?,?,?)', array);
+            err = result.affectedRows === 1 ? '' : '图片添加失败';
+        }
         await connection.end();
     }
     ctx.body = {

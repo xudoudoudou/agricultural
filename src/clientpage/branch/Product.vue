@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <div class="client_content">
+    <div class="client_content" >
       <div class="products">
         <h1><span>产品展示</span></h1>
           <ul>
@@ -56,7 +56,6 @@ export default {
   },
   methods:{
     handleCurrentChange(page){
-      console.log('---',page)
       if(page !== this.search_data.page){
           this.search_data.page = page;
           this.ajaxData();
@@ -71,18 +70,19 @@ export default {
         })
     },
      ajaxData(){
-      ajax.call(this, '/listProduct', this.search_data, (obj, err) => {      
-          if (!err) {               
-                let data=obj.data
-                this.showdata1= obj.data               
+       this.axios.post('/listProduct',this.search_data).then((res)=>{
+          let data=res.data.data.data
+           this.showdata1= data               
                 this.showdata1.map(i=>{
                   let img=JSON.parse(i.article_extend).pic
                   return i.article_extend=img    
                 })
-              this.search_data.total = obj.total;
-                this.search_data.page = obj.page;
-          }
-      });
+              this.search_data.total = res.data.data.total;
+                this.search_data.page =res.data.data.page;
+                
+        }).catch((err) => {
+          console.log('sss',err)
+        })
     }
   },
 } 

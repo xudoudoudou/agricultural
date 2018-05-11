@@ -1,6 +1,6 @@
 <template>
   <div class="callm">
-    <div class="client_content">
+    <div class="client_content" style="height: 100%;">
       <h1><span>联系我们</span></h1>
       <el-form v-model="contact">
         <el-row class="row">
@@ -39,13 +39,13 @@
 </template>
 <script>
 import QRCode from 'qrcodejs2'  
-import {ajax,storage} from 'utils';
+// import {ajax,storage} from 'utils';
 import common from 'common';
 export default {
   data(){
     return{
       contact:{
-        addres:'湖南省祁东县太和堂镇江口水库管理所',
+        addres:'湖南省祁东县太和堂镇江口水库管理所11',
         caller:'刘湘东(经理)',
         phone:18386293533,
         email:'1578771331@qq.com',
@@ -65,15 +65,17 @@ export default {
      })
     },
     getcompanydata(){
-      ajax.call(this, '/companydata', this.contact, (obj, err) => {                   
-        if (!err) {
-          let data=obj.data
-          data.map(i=>{
-              this.contact=i
-              return i
-          })                   
-        }
-      });
+      this.axios.post('/companydata',{
+        contact: this.contact
+      }).then((res) => {
+        let data=res.data.data.data
+        data.map(i=>{
+            this.contact=i
+            return i
+        })
+      }).catch((err) => {
+        console.log(err)
+      })
     }
   },
   created(){

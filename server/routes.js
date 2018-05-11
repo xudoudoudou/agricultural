@@ -35,16 +35,16 @@ const urls = {
     'passedArticle': {},
     'deleteArticle': {},
     'getArticleById': {userType: 4},//获取文章详情
-    'testaa': {},
-    'clientad': {},//新增产品
-    'listClient':{},//展示所有产品列表
-    'getproductById': { userType: 4},//展示产品详情
-    'updateimg':{},//上传图片
-    'getimgtablist': {},//获取轮播图列表
-    'clientablist': {},//前台获取轮播图列表
-    'listProduct': {},//产品列表
-    'companydata':{},//公司详情
-    'editcompanydata':{}
+    'testaa': {userType: 0},
+    'clientad': {userType: 0},//新增产品
+    'listClient':{userType: 0},//展示所有产品列表
+    'getproductById': { userType: 0},//展示产品详情
+    'updateimg':{userType: 0},//上传图片
+    'getimgtablist': {userType: 0},//获取轮播图列表
+    'clientablist': {userType: 0},//前台获取轮播图列表
+    'listProduct': {userType: 0},//产品列表
+    'companydata':{userType: 0},//公司详情
+    'editcompanydata': { userType: 1, userType: 2}
 };
 
 Object.getOwnPropertyNames(urls).forEach(key=>{
@@ -96,6 +96,7 @@ routes.post('/upFile', multer({storage}).single('file'), async ctx => {
 //验证权限函数
 async function verify(ctx) {
     return new Promise((resolve, reject) => {
+        let aa = urls;
 		if(ctx.url.substring(0,5) !== '/api/'){
 			resolve({});//非后端接口请求
 		}

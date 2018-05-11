@@ -2,9 +2,13 @@
 export default {
     //数据库配置
     mysqlDB: {
-        host: '192.168.1.170',
-        user: 'vue_cms',
-        password: 'vue_cms',
+        // host: '192.168.1.170',
+        // user: 'vue_cms',
+        // password: 'vue_cms',
+        // database: 'vue_cms'
+        host: '127.0.0.1',
+        user: 'root',
+        password: 'root',
         database: 'vue_cms'
     },
     upPath:'dist/upFile/',//上传路径

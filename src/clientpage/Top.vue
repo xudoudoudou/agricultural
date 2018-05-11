@@ -73,11 +73,11 @@ export default {
 <style scoped lang="scss">
 .top {
   // background: #fff;
-  
-  margin-bottom: 0px;
+  margin-bottom:0px;
   width: 100%;
   .bread{
     background: rgb(245, 246, 246);
+    height: 30px;
     .client_content{
       .breadcrumb{
         font-family: Arial, Helvetica, sans-serif;

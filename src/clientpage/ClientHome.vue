@@ -1,10 +1,10 @@
 <template>
 <div class="home">
-    <Top></Top>
+    <Top class="top"></Top>
     <div class="content">
         <router-view/>
     </div>
-    <Footer></Footer>
+    <Footer class="footer"></Footer>
 </div>
 
 </template>
@@ -32,9 +32,12 @@ export default {
 .home{
     width: 100%;
     height: 100%;
-    .content{
+    .content{  
         background: rgb(245, 246, 246);
+        min-height:835px;
+       
     }
+    
+   
 }
 </style>
-

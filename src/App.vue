@@ -24,6 +24,7 @@
     .client_content{
        width: 1200px;
         margin: 0 auto;
+        min-height:774px;
     }
     .bounce-enter-active {
         animation: bounce-in .5s;

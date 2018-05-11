@@ -111,9 +111,8 @@ export default {
     methods:{
       //轮播图
       getimgtablist(){
-      ajax.call(this, '/clientablist', this.data, (obj, err) => {   
-          if (!err) {
-            let data=obj.data
+      this.axios.post( '/clientablist', this.data).then((res)=>{
+        let data=res.data.data.data
             let abr=[]
             data.filter(i=>{
               if(i.id==29){
@@ -129,33 +128,29 @@ export default {
                       arr.push(img)
                   }
                   this.bannerlist=arr
-                  //  console.log('--',imgdata)
                 })
                
               }                   
             })
-          }
-      });
+      })
     },
       handlenav(index,item){
         this.navCur=index
-        console.log('item',item.urls)
       },
       ajaxData(){
-        ajax.call(this, '/listClient', this.data, (obj, err) => {        
+         this.axios.post('/listClient',{data:this.data}).then((res)=>{
+          let data=res.data.data.data
           let temp=[]
-            if (!err) { 
-                this.project= obj.data.filter((i)=>{
-                    if(i.sort_name=='旅游列表'&& i.passed==0){
-                      
-                      temp.push(i)
-                      console.log('objobjobj',temp)
-                    }
-                    return i.sort_name=="旅游列表"&&i.passed==0
-                  })
-            
-            }
-        });
+          this.project= data.filter((i)=>{
+              if(i.sort_name=='旅游列表'&& i.passed==0){
+                
+                temp.push(i)
+              }
+              return i.sort_name=="旅游列表"&&i.passed==0
+            })
+        }).catch((err) => {
+          console.log(err)
+        })
       },
     }
 }

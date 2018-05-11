@@ -50,12 +50,13 @@ export default {
     },
   methods:{
     getActiveContent(id){
-        this.loading = !0;
-        ajax.call(this, '/getproductById', {id}, (obj, err) => {
-            this.loading = !1;
-            Object.getOwnPropertyNames(this.formdata).forEach(key => {
-                this.$set(this.formdata,key,obj[key]);
+        this.axios.post('/getproductById',{id:id}).then((res)=>{
+          let data=res.data.data
+          Object.getOwnPropertyNames(this.formdata).forEach(key => {
+                this.$set(this.formdata,key,data[key]);
             });
+        }).catch((err) => {
+          console.log(err)
         })
     },
   },

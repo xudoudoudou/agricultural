@@ -95,7 +95,6 @@
 </template>
 <script>
 import companyData from '../data/companydata';
-import {ajax,storage} from 'utils';
 import common from 'common';
 export default {
   data(){
@@ -138,16 +137,17 @@ export default {
        this.companydata=Object.assign({},companyData)
     },
     getcompanydata(){
-      ajax.call(this, '/companydata', this.companydata, (obj, err) => {                   
-          if (!err) {
-              let data=obj.data
-              data.map(i=>{
-                  this.companydata=i
-                  return i
-              })
-              console.log('obj',data)                      
-          }
-      });
+       this.axios.post('/companydata',{
+          companydata: this.companydata
+        }).then((res) => {
+          let data=res.data.data.data
+          data.map(i=>{
+              this.companydata=i
+              return i
+          })
+        }).catch((err) => {
+          console.log(err)
+        })
     }
   },
   mounted(){
