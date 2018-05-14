@@ -279,7 +279,6 @@
                         this.table_data.data = obj.data;
                         this.table_data.total = obj.total;
                         this.search_data.page = obj.page;
-                        console.log('---',obj.page)
                     }
                 });
             },

@@ -111,6 +111,7 @@ export default {
     .topmenu {
       margin-right: 10px;
       background: #fff;
+      // border: 1px solid red;
       .menu_item {
         height: 40px;
         text-align: center;
@@ -120,7 +121,6 @@ export default {
         padding: 0px;
         font-family: 微软雅黑;
         border: 1px solid #ffffff;
-
           li{
             height: 40px;
           }

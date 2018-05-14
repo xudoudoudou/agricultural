@@ -81,13 +81,13 @@
                 let dis = false;
                 let user = this.userInfo;
                 if(code === 'edit'){
-                    dis = user.id !== row.user_id ? true : this.grade.updateArticle;
+                    dis = user.user_type > 2 && user.id !== row.user_id ? true : this.grade.updateArticle;
                 }
                 return h('el-button', {
                     props: {size: 'small',disabled:dis},
                     on: {
                         click(){
-                            self.healColumnClick(code, row)
+                            self.healColumnClick(code, row) 
                         }
                     }
                 },[text])

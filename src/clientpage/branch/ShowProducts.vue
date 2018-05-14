@@ -72,7 +72,10 @@ export default {
   height:30px;
   line-height: 25px;
   box-shadow: 0 1px grey;
-  .left{float:left}
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  .left{float:left
+  
+  }
   .right{float:right}
 }
 .client_content{

@@ -30,6 +30,8 @@
           <el-col :span="24">
             <div class="grid-content">
               <img :src="mapurl">
+              <!-- <baidu-map @ready="handler" :scroll-wheel-zoom="true" :center="center" :zoom="zoom" class="bm-view" ak="z7NKYlBQqiCUZiFbBvSkHGjHSRPRGXjn">
+              </baidu-map> -->
             </div>
             </el-col>
         </el-row>
@@ -38,10 +40,14 @@
   </div>
 </template>
 <script>
-import QRCode from 'qrcodejs2'  
-// import {ajax,storage} from 'utils';
+import QRCode from 'qrcodejs2'
+import {BaiduMap} from 'vue-baidu-map'
 import common from 'common';
+
 export default {
+  components: {
+     BaiduMap,
+  },
   data(){
     return{
       contact:{
@@ -52,11 +58,19 @@ export default {
         ems:421000,       
         weburl:'www.baidu.com'
       },
+      center: {lng: 0, lat: 0},
+      zoom: 3,
       qqurl:require('../../assets/img/qq.gif'),
-        mapurl:require('../../assets/img/map.jpg'),
+      mapurl:require('../../assets/img/map.jpg'),
     }
   },
   methods:{
+    handler ({BMap, map}) {
+      console.log(BMap, map)
+      this.center.lng = 111.986897
+      this.center.lat = 27.083536
+      this.zoom = 15
+    },
    getqs(){
      let qssss=new QRCode('qs',{
        width:150,
@@ -89,12 +103,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.bm-view {
+  width: 100%;
+  height: 300px;
+}
 .img_line{
   display: flex;
 }
 
 .client_content{
-  background: url('../../assets/img/callbg.jpg') no-repeat;
+  background: url('../../assets/img/map2.jpg') no-repeat;
   background-size: cover;
   padding:50px 150px;
    h1{

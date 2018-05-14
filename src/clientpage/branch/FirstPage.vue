@@ -1,15 +1,15 @@
 <template>
   <div >
-     <el-carousel :interval="5000" arrow="always" style="height:350px">
-        <el-carousel-item style="height:350px" v-for="(item,index) in imglist" :key="index">
-          <div class="tabimg" v-html="item" height="350px" width="100%"></div>
+     <el-carousel :interval="5000" arrow="always" style="height:420px">
+        <el-carousel-item style="height:420px" v-for="(item,index) in imglist" :key="index">
+          <div class="tabimg" v-html="item" height="420px" width="100%"></div>
           <!-- <img :src="item.imgurl" height="350px" width="100%"> -->
         </el-carousel-item>
       </el-carousel>
       <div class="cclient_content">
         <p style="text-align:center; border-bottom:1px solid gainsboro;font-size:19px;color:grey;padding:10px 0">我们的服务</p>
         <div class="services">
-          <ul >
+          <ul v-loading="loading">
             <li v-for="(item,index) in showdata1" :key="index">
               <img :src='item.article_extend' width="250px" height="150px">
               <div>
@@ -40,16 +40,10 @@ import common from 'common';
 export default {
   data(){
     return{
-      loading:true,
+      loading:false,
       productlist:[],
       data:{},
-       imglist:[
-         {imgurl:require('../../assets/img/tab1.jpg')},
-         {imgurl:require('../../assets/img/tab2.jpg')},
-         {imgurl:require('../../assets/img/tab3.jpg')},
-         {imgurl:require('../../assets/img/tab4.jpg')},
-         {imgurl:require('../../assets/img/tab5.jpg')},
-      ],
+       imglist:[],
       showdata1:[
         {
           id:0,
@@ -103,7 +97,9 @@ export default {
       })
     },
     ajaxData(){
+      this.loading=true
       this.axios.post('/listClient',{data:this.data}).then((res)=>{
+        this.loading=false
         let data=res.data.data.data
         let temp=[]
         this.showdata1= data.filter((i)=>{
@@ -124,7 +120,9 @@ export default {
         })
     },
     ajaxData1(){
+      this.loading=true
        this.axios.post('/listProduct',{data:this.data}).then((res)=>{
+         this.loading=false
          let data=res.data.data.data
          this.productlist=data
           this.productlist.map((i)=>{
