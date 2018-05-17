@@ -6,8 +6,15 @@ import 'lib-flexible';
 import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
 import axios from 'axios';
-import './assets/css/common.css'
+import './assets/css/common.css';
+import VueLazyload from 'vue-lazyload'
+
 Vue.prototype.axios = axios;
+
+Vue.use(VueLazyload, {
+    loading: require('./assets/load.png'),
+    error: require('./assets/error(1).png')
+});
 Vue.use(Vant);
 Vue.use(Vuex);
 import store from './store/';//本地存储

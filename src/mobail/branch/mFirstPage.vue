@@ -1,11 +1,11 @@
 <template>
   <div class="first">
-    <div style="border-bottom:1px solid rgb(187,187,187);margin-top:20px"></div>
+    <div style="border-bottom:1px solid rgb(230,230,230);margin-top:20px"></div>
    <div class="mproduct">
       <h2 style="text-align:center;margin:5px 0px;font-size:26px;color: #FF9900;">产品中心</h2>
       <ul>
         <li v-for="(item,index) in productlist" v-if="index<4" :key="index" @click="showproducts(item)">
-          <img :src='item.article_extend'>
+          <img src='' v-lazy="item.article_extend">
           <div class="mcontent">
             <p>{{item.title}}</p>
             <p>{{item.maincontent}}</p>
@@ -13,7 +13,7 @@
         </li>
       </ul>
    </div>
-   <div style="border-bottom:1px solid rgb(187,187,187);margin:20px 0px 10px 0px;"></div>
+   <div style="border-bottom:1px solid rgb(230,230,230);margin:20px 0px 10px 0px;"></div>
     <div class="about">
       <h2 style="text-align:center;margin:5px 0px; font-size:26px;color: #FF9900;">关于我们</h2>
       <strong style="font-size: 17.6px; color:rgb(102, 102, 102); text-align: center; white-space: normal; background-color: rgb(255, 255, 255);">{{companydata.company}}</strong>

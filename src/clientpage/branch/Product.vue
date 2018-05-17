@@ -5,7 +5,7 @@
         <h1><span>产品展示</span></h1>
           <ul>
             <li v-for="(item,index) in showdata1" :key="index" @click="showproducts(item)">
-              <img :src='item.article_extend' width="100%" height="150px">
+              <img src='' v-lazy="item.article_extend" width="100%" height="150px">
               <div class="pcontent">
                 <p>{{item.title}}</p>
                 <p>{{item.maincontent}}</p>

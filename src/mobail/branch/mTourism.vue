@@ -11,7 +11,7 @@
     </p> 
     <ul class="menulist">
       <li v-for="(item,index) in project" :key="index" @click="chooseli(null,item)">
-        <img :src='item.article_extend'>
+        <img src='' v-lazy="item.article_extend">
         <div class="mcontent">
           <p>{{item.title}}</p>
         </div>

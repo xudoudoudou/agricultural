@@ -8,8 +8,14 @@ import 'element-ui/lib/theme-default/index.css';
 import Vuex from 'vuex';
 import axios from 'axios';
 import storage from './utils/storage';
+import VueLazyload from 'vue-lazyload'
 
 Vue.prototype.axios = axios;
+
+Vue.use(VueLazyload, {
+    loading: require('./assets/load.png'),
+    error: require('./assets/error(1).png')
+});
 axios.defaults.headers.common['Authorization'] = storage.get('userInfo').token || '';
 
 Vue.use(Vuex);

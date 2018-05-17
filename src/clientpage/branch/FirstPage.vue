@@ -11,7 +11,7 @@
         <div class="services">
           <ul v-loading="loading">
             <li v-for="(item,index) in showdata1" :key="index">
-              <img :src='item.article_extend' width="250px" height="150px">
+              <img src='' v-lazy="item.article_extend" width="250px" height="150px">
               <div>
                 <p>{{item.title}}</p>
                 <p>{{item.maincontent}}</p>
@@ -23,7 +23,7 @@
         <div class="products">
           <ul>
             <li v-for="(item,index) in productlist" v-if="index<4" :key="index" @click="showproducts(item)">
-              <img :src='item.article_extend' width="100%" height="150px">
+              <img src='' v-lazy="item.article_extend" width="100%" height="150px">
               <div style="background:#fff;height:125px">
                 <p>{{item.title}}</p>
                 <p>{{item.maincontent}}</p>

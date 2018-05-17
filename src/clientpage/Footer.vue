@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p>Copyright © 2014 湖南祖源农业发展有限责任公司 All rights reserved.</p>
+    <p>Copyright © 湖南祖源农业发展有限责任公司 All rights reserved.</p>
   </div>
 </template>
 <script>

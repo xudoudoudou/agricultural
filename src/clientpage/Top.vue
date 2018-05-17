@@ -1,7 +1,7 @@
 <template>
   <div class="top">
       <div class="toptop">
-        <img :src="imgurl" width="200px" height="80px">
+        <img :src="imgurl" width="270px" height="80px">
         <div>
           <el-menu :default-active="activeIndex" class="topmenu" mode="horizontal" @select="handleSelect">
               <el-menu-item index="1" class="menu_item" ><router-link to="/cn" tag="li" >网站首页</router-link></el-menu-item>

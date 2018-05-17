@@ -9,7 +9,7 @@ import UpFileList from 'page/UpFile/list.vue'
 import userList from 'page/User/list.vue'
 import userAdd from 'page/User/add.vue'
 // import test from 'page/test.vue'
-import clientlist from 'page/Clientmanger/clientlist.vue'
+// import clientlist from 'page/Clientmanger/clientlist.vue'
 import upimg from 'page/UpFile/upimg.vue'
 import Company from 'page/Company/company.vue'
 //todo 记录
@@ -168,25 +168,25 @@ export default {
             }]
         },
         //--------------
-        {
-            path: '/Agriculture',
-            meta: {
-                verify: true,
-                title: '测试着玩',
-                icon: 'fa fa-upload'
-            },
-            component: Home,
-            redirect: '/Agriculture/clientlist',
-            children: [{
-                path: 'clientlist',
-                meta: {
-                    verify: true,
-                    grade: common.page_grade.listUpFile,
-                    title: '添加产品',
-                    icon: 'fa fa-files-o'
-                },
-                component: clientlist
-            }]
-        }
+        // {
+        //     path: '/Agriculture',
+        //     meta: {
+        //         verify: true,
+        //         title: '测试着玩',
+        //         icon: 'fa fa-upload'
+        //     },
+        //     component: Home,
+        //     redirect: '/Agriculture/clientlist',
+        //     children: [{
+        //         path: 'clientlist',
+        //         meta: {
+        //             verify: true,
+        //             grade: common.page_grade.listUpFile,
+        //             title: '添加产品',
+        //             icon: 'fa fa-files-o'
+        //         },
+        //         component: clientlist
+        //     }]
+        // }
     ]
 }

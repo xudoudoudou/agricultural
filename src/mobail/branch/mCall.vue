@@ -1,6 +1,8 @@
 <template>
   <div class="callm">
+    <div style="border-bottom:1px solid rgb(230,230,230);margin-top:20px"></div>
     <h2 style="text-align:center;margin:5px 0px; font-size:26px;color: #FF9900;">联系我们</h2>
+    <div style="border-bottom:1px solid rgb(230,230,230);margin-top:10px"></div>
     <div class="grid-content">
       <p><span class="calltitle"><strong>公司地址:</strong></span><span>{{contact.addres}}</span></p>
       <p><span class="calltitle"><strong>联系人:</strong></span><span>{{contact.caller}}</span></p>

@@ -1,5 +1,12 @@
 <template>
   <div class="footer">
+    <ul>
+      <router-link to="/mcn">网站首页 </router-link><span style="color:white;margin:0px 4px 0px 0px;">|</span>
+      <router-link to="/mabout">关于我们</router-link><span style="color:white;margin:0px 4px 0px 0px;">|</span>
+      <router-link to="/mtourism">乡村旅游</router-link><span style="color:white;margin:0px 4px 0px 0px;">|</span>
+      <router-link to="/mproduct">产品展示</router-link><span style="color:white;margin:0px 4px 0px 0px;">|</span>
+      <router-link to="/mcall">联系我们</router-link>
+    </ul>
     <div class="grid-content">
       <p><span class="calltitle"><strong>公司地址:</strong></span><span>{{contact.addres}}</span></p>
       <p><span class="calltitle"><strong>联系人:</strong></span><span>{{contact.caller}}</span></p>
@@ -63,7 +70,22 @@ export default {
 .footer{
   padding: 0 5px;
   background: rgb(110, 109, 109);
-  
+  ul{
+    display: flex;
+    flex-wrap:wrap;
+    align-items: flex-start;
+    font-size: 13px;
+    line-height: 30px;
+    a{
+      margin-right: 3.5px;
+      color: white;
+      &:hover{
+        text-decoration: underline;
+        color: orange;
+      }
+    }
+
+  }
   .grid-content{
     p{
       color: white;
