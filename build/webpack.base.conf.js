@@ -11,7 +11,8 @@ module.exports = {
     },
     entry: {
         app: './src/main.js',
-        client: './src/client.js'
+        client: './src/client.js',
+        mobail: './src/mobail.js'
     },
     output: {
         path: config.build.assetsRoot,

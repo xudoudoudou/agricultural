@@ -43,8 +43,11 @@ const urls = {
     'getimgtablist': {userType: 0},//获取轮播图列表
     'clientablist': {userType: 0},//前台获取轮播图列表
     'listProduct': {userType: 0},//产品列表
+    'applistProduct':{userType:0},
+    'apptoulist': { userType: 0},
     'companydata':{userType: 0},//公司详情
-    'editcompanydata': { userType: 1, userType: 2}
+    'editcompanydata': { userType: 1, userType: 2},
+    'gettouById': { userType: 0}
 };
 
 Object.getOwnPropertyNames(urls).forEach(key=>{

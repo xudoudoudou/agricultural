@@ -67,10 +67,13 @@
             </el-form-item>
             <el-form-item label="公司简介:" prop="profile" >
                 <textarea style="width:1210px; font-size:15px;line-height:25px; height:200px; border-radius:4px; " v-model="companydata.profile" :disabled="disabled"></textarea>
-            </el-form-item>
+            </el-form-item>                    
             <el-form-item label="经营范围:" prop="operation">
                 <textarea style="width:1210px; font-size:15px;line-height:25px; height:100px; border-radius:4px; " v-model="companydata.operation" :disabled="disabled"></textarea>
-            </el-form-item>       
+            </el-form-item>
+            <el-form-item label="手机端公司简单描述:" prop="introdction" >
+                <textarea style="width:1210px; font-size:15px;line-height:25px; height:200px; border-radius:4px; " v-model="companydata.introdction" :disabled="disabled"></textarea>
+            </el-form-item>     
         </el-form>
         <el-button :disabled="disabled1" type="primary" @click="submitForm">提交</el-button>
     </div>
@@ -86,6 +89,7 @@
              companydata:{
                 company:'',//公司名称
                 profile:'',//公司简介
+                introdction:'',//手机端公司简单描述:
                 legal:'',//公司法人
                 operation:'',//经营范围
                 organ:'',//发证机关

@@ -39,6 +39,13 @@ module.exports = merge(baseWebpackConfig, {
             favicon: 'favicon.ico',
             chunks: ['client']
         }),
+        new HtmlWebpackPlugin({
+            filename: 'mobail.html',
+            template: 'mobail.html',
+            inject: true,
+            favicon: 'favicon.ico',
+            chunks: ['mobail']
+        }),
         new FriendlyErrorsPlugin()
     ]
 })

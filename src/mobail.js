@@ -1,0 +1,21 @@
+import Vue from 'vue';
+import App from './App';
+import VueRouter from 'vue-router';
+import Vuex from 'vuex';
+import 'lib-flexible';
+import Vant from 'vant';
+import 'vant/lib/vant-css/index.css';
+import axios from 'axios';
+import './assets/css/common.css'
+Vue.prototype.axios = axios;
+Vue.use(Vant);
+Vue.use(Vuex);
+import store from './store/';//本地存储
+
+Vue.use(VueRouter);
+import router from './mroutes.js';
+new Vue({
+    router,
+    store,
+    'render': h => h(App)
+}).$mount('#app');

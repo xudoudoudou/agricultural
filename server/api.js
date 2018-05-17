@@ -913,6 +913,50 @@ async function listProduct(ctx) {
         }
     }
 }
+//展示app产品列表
+async function applistProduct(ctx) {
+    const data = ctx.request.body;
+    let pageSize = Math.abs(data.pageSize >> 0) || 6;//分页率
+    let page = Math.abs(data.page >> 0) || 1;//当前页码
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [rows] = await connection.execute("SELECT SQL_NO_CACHE COUNT(*) as total FROM article as a where a.sort_id = 6 and a.passed=0", []);
+    const total = rows[0].total;//总数量
+    const pages = Math.ceil(total / pageSize);
+    if (page > pages) {
+        page = Math.max(1, pages);//以防没数据
+    }
+    const [list] = await connection.execute("SELECT a.* FROM article as a where a.sort_id = 6 and passed=0 order by a.id desc LIMIT ?, ?", [(page - 1) * pageSize, pageSize]);
+    await connection.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            page, total, data: list
+        }
+    }
+}
+//展示app旅游产品列表
+async function apptoulist(ctx) {
+    const data = ctx.request.body;
+    let pageSize = Math.abs(data.pageSize >> 0) || 6;//分页率
+    let page = Math.abs(data.page >> 0) || 1;//当前页码
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [rows] = await connection.execute("SELECT SQL_NO_CACHE COUNT(*) as total FROM article as a where a.sort_id = 8 and a.passed=0", []);
+    const total = rows[0].total;//总数量
+    const pages = Math.ceil(total / pageSize);
+    if (page > pages) {
+        page = Math.max(1, pages);//以防没数据
+    }
+    const [list] = await connection.execute("SELECT a.* FROM article as a where a.sort_id = 8 and passed=0 order by a.id desc LIMIT ?, ?", [(page - 1) * pageSize, pageSize]);
+    await connection.end();
+    ctx.body = {
+        success: true,
+        message: '',
+        data: {
+            page, total, data: list
+        }
+    }
+}
 //所有产品列表
 async function listClient(ctx) {
     const data = ctx.request.body; 
@@ -953,6 +997,26 @@ async function getproductById(ctx) {
     //扩展上一条下一条数据
     let [prev] = await connection.execute("SELECT `id`,`title` FROM article where id<? and sort_id = 6 order by id desc limit 1", [id]);
     let [next] = await connection.execute("SELECT `id`,`title` FROM article where id>? and sort_id = 6 order by id asc limit 1", [id]);
+    obj.prev = prev.length ? prev[0] : {};
+    obj.next = next.length ? next[0] : {};
+    await connection.end();
+    ctx.body = {
+        success: !msg,
+        message: msg,
+        data: !msg ? obj : {}
+    }
+}
+//获取旅游详情（管理员获取所有；会员获取自己的或者是审核通过的）
+async function gettouById(ctx) {
+    const data = ctx.request.body;
+    let id = data.id >> 0;
+    let msg;
+    const connection = await mysql.createConnection(config.mysqlDB);
+    const [list] = await connection.execute("SELECT a.* FROM article as a LEFT JOIN sort as s on a.sort_id = 8 where a.id=?", [id]);
+    const obj = list[0];
+    //扩展上一条下一条数据
+    let [prev] = await connection.execute("SELECT `id`,`title` FROM article where id<? and sort_id = 8 order by id desc limit 1", [id]);
+    let [next] = await connection.execute("SELECT `id`,`title` FROM article where id>? and sort_id = 8 order by id asc limit 1", [id]);
     obj.prev = prev.length ? prev[0] : {};
     obj.next = next.length ? next[0] : {};
     await connection.end();
@@ -1058,6 +1122,7 @@ async function editcompanydata(ctx) {
     const obj = {
         company: '公司名称',
         profile: '公司简介',
+        introdction:'手机端公司简单介绍',
         legal: '公司法人',
         operation: '经营范围',
         organ: '发证机关',
@@ -1090,6 +1155,7 @@ async function editcompanydata(ctx) {
         data.read_type >> 0,
         data.company,
         data.profile,
+        data.introdction,
         data.legal,
         data.operation,
         data.organ,
@@ -1130,16 +1196,8 @@ async function editcompanydata(ctx) {
             }
             array.push(data.id);
             
-            const [result] = await connection.execute('UPDATE `company` SET `read_type`=?,`company`=?,`profile` =?,`legal` =?,`operation` =?,`organ` =?,`license` =?,`establishment` =?,`Registered` =?,`companytype` =?,`operationStateL` =?,`companycity` =?,`type` =?,`code` =?,`Shareholder` =?,`post` =?,`Supervisorperson` =?,`Supervisor` =?,`addres` =?,`caller` =?,`phone` =?,`email` =?,`ems` =?, `weburl` =? where `id`=?', array);
+            const [result] = await connection.execute('UPDATE `company` SET `read_type`=?,`company`=?,`profile` =?,`introdction`=?, `legal` =?,`operation` =?,`organ` =?,`license` =?,`establishment` =?,`Registered` =?,`companytype` =?,`operationStateL` =?,`companycity` =?,`type` =?,`code` =?,`Shareholder` =?,`post` =?,`Supervisorperson` =?,`Supervisor` =?,`addres` =?,`caller` =?,`phone` =?,`email` =?,`ems` =?, `weburl` =? where `id`=?', array);
             err = result.affectedRows === 1 ? '' : '修改失败';
-        } 
-         else {
-            //添加文章
-            array.push(new Date().toLocaleString());//添加日期
-            array.push(user.user_type < 3 ? 1 : 0);//是否通过审核
-            array.push(user.id);//用户信息
-            const [result] = await connection.execute('INSERT INTO `company` (company,create_time,user_id) VALUES (?,?,?)', array);
-            err = result.affectedRows === 1 ? '' : '图片添加失败';
         }
         await connection.end();
     }
@@ -1183,6 +1241,9 @@ export default {
     getimgtablist,
     clientablist,
     listProduct,
+    applistProduct,
+    apptoulist,
     companydata,
-    editcompanydata
+    editcompanydata,
+    gettouById
 }

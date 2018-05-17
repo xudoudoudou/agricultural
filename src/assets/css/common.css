@@ -5,6 +5,13 @@
     width: 100%;
 }
 
+/* app轮播图 */
+
+.apptabimg img {
+    height: 140px;
+    width: 100%;
+}
+
 /* 旅游板块轮播图 */
 
 .tourism_tab img {
@@ -25,4 +32,16 @@
 
 .article_content img {
     max-width: 1160px;
+}
+
+/* app产品描述 */
+
+.apparticle_content {
+    border: 1px solid rgb(255, 255, 255);
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.apparticle_content img {
+    max-width: 100%;
 }
