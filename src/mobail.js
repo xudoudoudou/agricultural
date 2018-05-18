@@ -2,11 +2,11 @@ import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
-import 'lib-flexible';
 import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
 import axios from 'axios';
 import './assets/css/common.css';
+import './assets/js/rem.js'
 import VueLazyload from 'vue-lazyload'
 
 Vue.prototype.axios = axios;

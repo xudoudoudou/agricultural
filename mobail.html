@@ -3,8 +3,19 @@
 
 <head>
     <meta charset="utf-8">
+        <script>
+            //        在移动端的页面在上面对加载页面的设备进行判断，如果不为移动设备，则跳转加载pc端样式
+           function cmd(){
+                if (!(/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)) {
+                    window.location.href = 'http://localhost:3000/client.html';
+                    // window.location.reload()
+                }
+                setTimeout('cmd()',0)
+            }
+           cmd() 
+        </script>
     <meta name="keywords" content="网站搜索引擎搜索的关键词,热门词,竹桶酒,湖南祖源农业">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>湖南祖源农业发展有限责任公司</title>
     <link href="favicon.ico" type="image/ico" rel="shortcut icon" />
 </head>
@@ -12,19 +23,8 @@
 <body>
     <div id="app"></div>
 <script type="text/javascript">
-    function htRem() {
-        var ww = document.documentElement.clientWidth;
-        if (ww > 750) {
-            ww = 750;
-        }
-        document.documentElement.style.fontSize = ww / 7.5 + "px";
-    }
-    htRem();
-    window.onresize = function () {
-        htRem();     
-    };
 //    window.location.href = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ? "https://www.baidu.com/" : "http://news.baidu.com/";
+ 
 </script>
 </body>
-
 </html>

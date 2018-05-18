@@ -4,6 +4,18 @@
 
 <head>
     <meta charset="utf-8">
+    <script>
+        //    若设备为移动设备，则跳转加载移动端样式
+        function abc(){
+            if ((/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)) {
+                window.location.href = 'http://localhost:3000/mobail.html';
+
+            }
+            setTimeout("abc()", 0);  
+        }
+       abc()
+        
+    </script>
     <meta name="keywords" content="网站搜索引擎搜索的关键词,热门词,竹桶酒,湖南祖源农业">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>湖南祖源农业发展有限责任公司</title>
@@ -14,21 +26,21 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script type="text/javascript">
-        function IsPC() { 
-            var userAgentInfo = navigator.userAgent; 
-            var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-            var flag = true;
+        // function IsPC() { 
+        //     var userAgentInfo = navigator.userAgent; 
+        //     var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        //     var flag = true;
             
-            for (var v = 0; v < Agents.length; v++) { 
+        //     for (var v = 0; v < Agents.length; v++) { 
                 
-                if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                    flag = false; 
-                    break;
-                } 
-            } 
-            return flag;
-        }
-        IsPC()
+        //         if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        //             flag = false; 
+        //             break;
+        //         } 
+        //     } 
+        //     return flag;
+        // }
+        // IsPC() 
     </script>
 </body>
 

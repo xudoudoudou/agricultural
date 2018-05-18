@@ -19,15 +19,16 @@ export default new Router({
         }, 
         {
             path: '/',
-            redirect: '/mobail'
+            redirect: '/mcn'
         },
         {
             path: '/mobail',
-            // name: 'home',
+            name: 'home',
             component: Home,
             children: [
                 {
                     path: '/mcn',
+                    name:'mFirstPage',
                     component: mFirstPage
                 },
                 {

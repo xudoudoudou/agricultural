@@ -2,7 +2,7 @@
   <div class="first">
     <div style="border-bottom:1px solid rgb(230,230,230);margin-top:20px"></div>
    <div class="mproduct">
-      <h2 style="text-align:center;margin:5px 0px;font-size:26px;color: #FF9900;">产品中心</h2>
+      <h2 style="text-align:center;margin:5px 0px;font-size:2.6rem;color: #FF9900;">产品中心</h2>
       <ul>
         <li v-for="(item,index) in productlist" v-if="index<4" :key="index" @click="showproducts(item)">
           <img src='' v-lazy="item.article_extend">
