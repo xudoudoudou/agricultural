@@ -90,6 +90,7 @@ export default {
       margin: 0px;
       span{
         display: inline-block;
+        font-size: 14px;
       }
       .calltitle{
          width: 64px;

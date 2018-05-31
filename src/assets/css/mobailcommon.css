@@ -1,0 +1,23 @@
+body,p,span,div,h1,h2,h3,h4,h5,h6,a{
+    font-size: 15px;
+}
+
+/* app轮播图 */
+
+.apptabimg img {
+    height: 3.5rem;
+    width: 100%;
+}
+
+/* app产品描述 */
+
+.apparticle_content {
+    border: 1px solid rgb(255, 255, 255);
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.apparticle_content img {
+    max-width: 100%;
+}
+

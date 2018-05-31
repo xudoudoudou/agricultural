@@ -210,7 +210,8 @@ export default {
       box-shadow: 0px 3px rgb(192, 188, 188);
       img{
         width:100%;
-        height: 100px;
+        height: 2.2rem;
+        display: block;
         
       }
       .mcontent{
@@ -222,7 +223,6 @@ export default {
           margin: 0px;
           padding:3px 8px;
           text-align: center;
-           
         }
         p:nth-child(1){
           font-size: 15px;

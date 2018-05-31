@@ -15,7 +15,7 @@
       <p><span class="calltitle"><strong>邮政编码:</strong></span><span>{{contact.ems}}</span></p> 
     </div>      
     <div id="qs"></div>
-    <p class="img"><strong>官方网站</strong></p>
+    <p class="img"><strong style="font-size:14px;display:block;font-weight:normal">官方网站</strong></p>
     <p class="bottom">Copyright © 湖南祖源农业发展有限责任公司</p>
   </div>
 </template>
@@ -74,11 +74,11 @@ export default {
     display: flex;
     flex-wrap:wrap;
     align-items: flex-start;
-    font-size: 13px;
     line-height: 30px;
     a{
       margin-right: 3.5px;
       color: white;
+      font-size: 13px;
       &:hover{
         text-decoration: underline;
         color: orange;
@@ -96,6 +96,7 @@ export default {
       margin: 0px;
       span{
         display: inline-block;
+        font-size: 13px;
       }
       .calltitle{
          width: 64px;

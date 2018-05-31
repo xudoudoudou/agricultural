@@ -11,7 +11,7 @@
 <script>
 import top from './Top'
 import Footer from './Footer'
-console.log('--',document.documentElement.clientWidth)
+
 	export default {
 		name: 'home',
         components:{
@@ -39,8 +39,12 @@ console.log('--',document.documentElement.clientWidth)
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 	.hello{
-        height: 100%;
-        width: 100%;
-        
+position: relative;
+width: 100%;
+// max-width:750px;
+// min-width: 320px;
+margin: 0 auto;
+// border: 1px solid gray;
+
     }
 </style>

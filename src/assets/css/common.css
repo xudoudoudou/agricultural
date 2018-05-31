@@ -8,7 +8,7 @@
 /* app轮播图 */
 
 .apptabimg img {
-    height: 140px;
+    height: 3.5rem;
     width: 100%;
 }
 
@@ -45,3 +45,4 @@
 .apparticle_content img {
     max-width: 100%;
 }
+

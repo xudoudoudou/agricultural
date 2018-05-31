@@ -5,7 +5,7 @@ import Vuex from 'vuex';
 import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
 import axios from 'axios';
-import './assets/css/common.css';
+import './assets/css/mobailcommon.css';
 import './assets/js/rem.js'
 import VueLazyload from 'vue-lazyload'
 

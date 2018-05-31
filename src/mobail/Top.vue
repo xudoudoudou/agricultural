@@ -145,22 +145,23 @@ export default {
  z-index:9; 
 } 
 .mobail_top{
-  height: 40px;
-  padding: 10px 0px 0px  0px;
+  height: 1rem;
+  padding: 0.2rem 0 0  0;
   border-bottom: 1px solid rgb(228, 227, 227); 
   .van-icon{
+    position: absolute;
     padding: 0px;
-    margin-left: 10px;
-     line-height: 35px;
+    margin: 0 0.1rem;
+     line-height: 0.8rem;
      padding: 0px;
-     width:9%;
+     width:20%;
      color: rgb(163, 161, 161);
      text-align: center;
-     font-size: 30px;
+     font-size: 0.8rem;
   }
   img{
-    height: 35px;
-    width:280px;
+    height: 1.03rem;
+    width:4.5rem;
     position: absolute;
     left: 0px;
     right: 0px;
@@ -168,10 +169,10 @@ export default {
   }
 }
 .van-swipe{
-  height: 140px;
+  height: 3.5rem;
   .van-swipe-item{
-      width:100%;
-       height: 140px;
+    width:100%;
+    height: 3.5rem;
   }
 }
 .nav{

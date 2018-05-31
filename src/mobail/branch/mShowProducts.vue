@@ -1,7 +1,7 @@
 <template>
   <div class="productdeital">
     <p style="margin:5px 5px;height:22px;line-height:22px;">
-      <span style="color:#757575; "><img style="margin-right:7px;position:relative;top:3px;" src="../../assets/home.png">您当前的位置：<router-link to='/mproduct'>产品展示></router-link></span><span style="color:#757575; ">{{formdata.title}}</span>  
+      <span style="color:#757575;font-size:14px "><img style="margin-right:7px;position:relative;top:3px;" src="../../assets/home.png">您当前的位置：<router-link to='/mproduct' style="font-size:14px">产品展示></router-link></span><span style="color:#757575;font-size:14px ">{{formdata.title}}</span>  
     </p>
     <h2>{{formdata.title}}</h2>
     <div class="sidebar_content">
@@ -74,14 +74,15 @@ export default {
     margin: 5px;
   }
   .sidebar_foot{
-    min-height: 60px;
-    font-size: 14px;
+    min-height: 60px;   
     line-height: 25px;
     .left{
       margin: 0px;
+      font-size: 14px;
     }
     .right{
       margin: 0px;
+      font-size: 14px;
     }
   }
 }

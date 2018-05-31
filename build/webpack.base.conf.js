@@ -30,6 +30,8 @@ module.exports = {
             'assets': path.resolve(__dirname, '../src/assets'),
             'page': path.resolve(__dirname, '../src/page'),
             'components': path.resolve(__dirname, '../src/components'),
+            'clientpage': path.resolve(__dirname, '../src/clientpage'),
+            'mobail': path.resolve(__dirname, '../src/mobail'),
             'store': path.resolve(__dirname, '../src/store'),
             'libs': path.resolve(__dirname, '../src/libs'),
             'utils': path.resolve(__dirname, '../src/utils'),

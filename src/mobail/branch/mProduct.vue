@@ -7,7 +7,7 @@
       </div>
     </ul>
      <p style="margin:5px 5px;height:22px;line-height:22px;">
-        <span style="color:#757575; "><img style="margin-right:7px;position:relative;top:3px;" src="../../assets/home.png">您当前的位置：<router-link to='/mproduct'>产品展示</router-link></span> 
+        <span style="color:#757575;font-size:14px "><img style="margin-right:7px;position:relative;top:3px;" src="../../assets/home.png">您当前的位置：<router-link to='/mproduct' style="font-size:14px">产品展示</router-link></span> 
       </p>
     <ul class="menulist">
       <li v-for="(item,index) in showdata1" :key="index" @click="showproducts(null,item)">
@@ -173,7 +173,8 @@ export default {
       box-shadow: 0px 3px rgb(192, 188, 188);
       img{
         width:100%;
-        height: 100px;
+        height: 2.2rem;
+        display: block;
         
       }
       .mcontent{

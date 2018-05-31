@@ -2,7 +2,7 @@
   <div class="first">
     <div style="border-bottom:1px solid rgb(230,230,230);margin-top:20px"></div>
    <div class="mproduct">
-      <h2 style="text-align:center;margin:5px 0px;font-size:2.6rem;color: #FF9900;">产品中心</h2>
+      <h2 style="text-align:center;margin:5px 0px;font-size:26px;color: #FF9900;">产品中心</h2>
       <ul>
         <li v-for="(item,index) in productlist" v-if="index<4" :key="index" @click="showproducts(item)">
           <img src='' v-lazy="item.article_extend">
@@ -16,7 +16,7 @@
    <div style="border-bottom:1px solid rgb(230,230,230);margin:20px 0px 10px 0px;"></div>
     <div class="about">
       <h2 style="text-align:center;margin:5px 0px; font-size:26px;color: #FF9900;">关于我们</h2>
-      <strong style="font-size: 17.6px; color:rgb(102, 102, 102); text-align: center; white-space: normal; background-color: rgb(255, 255, 255);">{{companydata.company}}</strong>
+      <strong style="display:block;font-size: 17.6px; color:rgb(102, 102, 102); text-align: center; white-space: normal; background-color: rgb(255, 255, 255);">{{companydata.company}}</strong>
       <p class="p2">{{companydata.introdction}}</p>
     </div>
 
@@ -30,7 +30,6 @@ export default {
     return{
       loading:false,
       productlist:[],
-      data:{},
       imglist:[],
       companydata:{
         company:'',//公司名称
@@ -67,9 +66,7 @@ export default {
     },
     //获取轮播图图片
      getimgtablist(){
-       this.axios.post('/clientablist',{
-          data: this.data
-        }).then((res) => {
+       this.axios.post('/clientablist').then((res) => {
           let data=res.data.data.data
             let abr=[]
             data.filter(i=>{
@@ -104,7 +101,7 @@ export default {
 
     ajaxData1(){
       this.loading=true
-       this.axios.post('/listProduct',{data:this.data}).then((res)=>{
+       this.axios.post('/listProduct').then((res)=>{
          this.loading=false
          let data=res.data.data.data
          this.productlist=data
@@ -146,7 +143,8 @@ export default {
       box-shadow: 0px 3px rgb(192, 188, 188);
       img{
         width:100%;
-        height: 100px;
+        height: 2.2rem;
+        display:block;
         
       }
       .mcontent{
